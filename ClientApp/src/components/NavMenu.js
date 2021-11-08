@@ -41,6 +41,6 @@ function NavMenu() {
             </Navbar>
         </header>
     );
-}
+};
 
 export { NavMenu };
