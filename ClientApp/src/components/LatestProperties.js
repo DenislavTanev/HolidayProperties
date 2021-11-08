@@ -13,7 +13,7 @@ function LatestProperties() {
                             </div>
                             <div className="title-link">
                                 <a href="property-grid.html">All Property
-                  <span className="bi bi-chevron-right"></span>
+                                    <span className="bi bi-chevron-right"></span>
                                 </a>
                             </div>
                         </div>
@@ -33,7 +33,8 @@ function LatestProperties() {
                                         <div className="card-header-a">
                                             <h2 className="card-title-a">
                                                 <a href="property-single.html">206 Mount
-                          <br /> Olive Road Two</a>
+                                                  <br /> Olive Road Two
+                                                </a>
                                             </h2>
                                         </div>
                                         <div className="card-body-a">
@@ -41,7 +42,7 @@ function LatestProperties() {
                                                 <span className="price-a">rent | $ 12.000</span>
                                             </div>
                                             <a href="#" className="link-a">Click here to view
-                        <span className="bi bi-chevron-right"></span>
+                                                <span className="bi bi-chevron-right"></span>
                                             </a>
                                         </div>
                                         <div className="card-footer-a">
@@ -49,7 +50,7 @@ function LatestProperties() {
                                                 <li>
                                                     <h4 className="card-info-title">Area</h4>
                                                     <span>340m
-                            <sup>2</sup>
+                                                        <sup>2</sup>
                                                     </span>
                                                 </li>
                                                 <li>
@@ -81,7 +82,8 @@ function LatestProperties() {
                                         <div className="card-header-a">
                                             <h2 className="card-title-a">
                                                 <a href="property-single.html">157 West
-                          <br /> Central Park</a>
+                                                    <br /> Central Park
+                                                </a>
                                             </h2>
                                         </div>
                                         <div className="card-body-a">
@@ -89,7 +91,7 @@ function LatestProperties() {
                                                 <span className="price-a">rent | $ 12.000</span>
                                             </div>
                                             <a href="property-single.html" className="link-a">Click here to view
-                        <span className="bi bi-chevron-right"></span>
+                                                  <span className="bi bi-chevron-right"></span>
                                             </a>
                                         </div>
                                         <div className="card-footer-a">
@@ -97,7 +99,7 @@ function LatestProperties() {
                                                 <li>
                                                     <h4 className="card-info-title">Area</h4>
                                                     <span>340m
-                            <sup>2</sup>
+                                                       <sup>2</sup>
                                                     </span>
                                                 </li>
                                                 <li>
@@ -129,7 +131,8 @@ function LatestProperties() {
                                         <div className="card-header-a">
                                             <h2 className="card-title-a">
                                                 <a href="property-single.html">245 Azabu
-                          <br /> Nishi Park let</a>
+                                                    <br /> Nishi Park let
+                                                </a>
                                             </h2>
                                         </div>
                                         <div className="card-body-a">
@@ -137,7 +140,7 @@ function LatestProperties() {
                                                 <span className="price-a">rent | $ 12.000</span>
                                             </div>
                                             <a href="property-single.html" className="link-a">Click here to view
-                        <span className="bi bi-chevron-right"></span>
+                                                <span className="bi bi-chevron-right"></span>
                                             </a>
                                         </div>
                                         <div className="card-footer-a">
@@ -145,7 +148,7 @@ function LatestProperties() {
                                                 <li>
                                                     <h4 className="card-info-title">Area</h4>
                                                     <span>340m
-                            <sup>2</sup>
+                                                       <sup>2</sup>
                                                     </span>
                                                 </li>
                                                 <li>

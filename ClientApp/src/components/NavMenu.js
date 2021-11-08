@@ -26,11 +26,11 @@ function NavMenu() {
                             </NavItem>
 
                             <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="/fetch-data">Properties</NavLink>
+                                <NavLink tag={Link} className="text-dark" to="/properties">Properties</NavLink>
                             </NavItem>
 
                             <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="/">Contacts</NavLink>
+                                <NavLink tag={Link} className="text-dark" to="/contact">Contacts</NavLink>
                             </NavItem>
 
                             <LoginMenu>
