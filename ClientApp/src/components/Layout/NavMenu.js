@@ -1,7 +1,7 @@
 import React from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { LoginMenu } from './api-authorization/LoginMenu';
+import { LoginMenu } from '../api-authorization/LoginMenu';
 
 function NavMenu() {
 
@@ -22,7 +22,7 @@ function NavMenu() {
                             </NavItem>
 
                             <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="/counter">About</NavLink>
+                                <NavLink tag={Link} className="text-dark" to="/propertyDetails">About</NavLink>
                             </NavItem>
 
                             <NavItem>

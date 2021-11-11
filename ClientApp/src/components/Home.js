@@ -1,8 +1,9 @@
 import React from 'react';
-import { IntroSwiper } from './IntroSwiper';
-import { Services } from './Services';
-import { LatestProperties } from './LatestProperties';
-import { Testimonials } from './Testimonials';
+import { IntroSwiper } from './IntroSwiper/IntroSwiper';
+import { Services } from './Services/Services';
+import LatestProperties from './Properties/LatestProperties';
+import { Testimonials } from './Testimonials/Testimonials';
+
 
 function Home() {
 
