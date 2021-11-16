@@ -29,10 +29,6 @@ function NavMenu() {
                                 <NavLink tag={Link} className="text-dark" to="/properties">Properties</NavLink>
                             </NavItem>
 
-                            <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="/contact">Contacts</NavLink>
-                            </NavItem>
-
                             <LoginMenu>
                             </LoginMenu>
                         </ul>
