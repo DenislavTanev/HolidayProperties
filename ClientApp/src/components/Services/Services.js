@@ -3,6 +3,27 @@ import { Service } from './Service';
 
 function Services() {
 
+    const services = [
+        {
+            id: '1',
+            title: 'Apartments',
+            description: '',
+            icon: 'bi bi-building',
+        },
+        {
+            id: '2',
+            title: 'Houses',
+            description: '',
+            icon: 'bi bi-house',
+        },
+        {
+            id: '3',
+            title: 'Huts',
+            description: '',
+            icon: 'bi bi-shop',
+        },
+    ]
+
     return (
         <section className="section-services section-t8">
             <div className="container">
@@ -16,11 +37,9 @@ function Services() {
                     </div>
                 </div>
                 <div className="row">
-
-                    <Service />
-                    <Service />
-                    <Service />
-
+                    {
+                        services.map(x => <Service key={x.id} service={x} />)
+                    }
                 </div>
             </div>
         </section>
