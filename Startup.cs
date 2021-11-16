@@ -1,5 +1,6 @@
 using HolidayProperties.Data;
 using HolidayProperties.Models;
+using HolidayProperties.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -57,6 +58,9 @@ namespace HolidayProperties
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddTransient<IImagesService, ImagesService>();
+            services.AddTransient<IPropertiesService, PropertiesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

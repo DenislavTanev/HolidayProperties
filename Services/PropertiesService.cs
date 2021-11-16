@@ -1,6 +1,7 @@
 ﻿using HolidayProperties.Data;
 using HolidayProperties.Data.Models;
 using HolidayProperties.Services.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,34 +48,127 @@ namespace HolidayProperties.Services
             await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(string id)
+        public async Task DeleteAsync(string propertyId, string userId)
         {
-            throw new NotImplementedException();
+            var property = await _context.Properties
+                .FirstOrDefaultAsync(x => x.Id == propertyId);
+
+            if (property.OwnerId == userId)
+            {
+                property.IsDeleted = true;
+                property.DeletedOn = DateTime.UtcNow;
+            }
+
+            await _context.SaveChangesAsync();
         }
 
-        public Task EditAsync(PropertyDetailsModel input)
+        public async Task EditAsync(PropertyDetailsModel input)
         {
-            throw new NotImplementedException();
+            var property = await _context.Properties
+                .FirstOrDefaultAsync(x => x.Id == input.Id);
+
+            if (property != null && property.IsDeleted == false)
+            {
+                property.Name = input.Name;
+                property.Address = input.Address;
+                property.Price = input.Price;
+                property.Description = input.Description;
+            }
+
+            await _context.SaveChangesAsync();
         }
 
         public IEnumerable<PropertyModel> GetAll()
         {
-            throw new NotImplementedException();
+            var properties = _context.Properties
+                .Where(x => x.IsDeleted == false)
+                .Select(p => new PropertyModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Type = p.Type,
+                    Price = p.Price,
+                    OwnerId = p.OwnerId,
+                    Images = p.Images.Select(i => new ImageModel
+                    {
+                        Id = i.Id,
+                        Img = i.Img,
+                    }).ToList(),
+                })
+                .ToList();
+
+            return properties;
         }
 
         public IEnumerable<PropertyModel> GetAllByType(string type)
         {
-            throw new NotImplementedException();
+            var properties = _context.Properties
+                .Where(x => x.IsDeleted == false && x.Type == type)
+                .Select(p => new PropertyModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Type = p.Type,
+                    Price = p.Price,
+                    OwnerId = p.OwnerId,
+                    Images = p.Images.Select(i => new ImageModel
+                    {
+                        Id = i.Id,
+                        Img = i.Img,
+                    }).ToList(),
+                })
+                .ToList();
+
+            return properties;
         }
 
         public PropertyDetailsModel GetById(string id)
         {
-            throw new NotImplementedException();
+            var property = _context.Properties
+                .Where(x => x.IsDeleted == false && x.Id == id)
+                .Select(p => new PropertyDetailsModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Type = p.Type,
+                    Address = p.Address,
+                    Description = p.Description,
+                    Price = p.Price,
+                    OwnerId = p.OwnerId,
+                    Images = p.Images.Select(i => new ImageModel
+                    {
+                        Id = i.Id,
+                        Img = i.Img,
+                    }).ToList(),
+                })
+                .FirstOrDefault();
+
+            return property;
         }
 
         public IEnumerable<PropertyModel> GetLatest()
         {
-            throw new NotImplementedException();
+            var properties = _context.Properties
+                .Where(x => x.IsDeleted == false)
+                .Select(p => new PropertyModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Type = p.Type,
+                    Price = p.Price,
+                    OwnerId = p.OwnerId,
+                    CreatedOn = p.CreatedOn,
+                    Images = p.Images.Select(i => new ImageModel
+                    {
+                        Id = i.Id,
+                        Img = i.Img,
+                    }).ToList(),
+                })
+                .OrderBy(x => x.CreatedOn)
+                .Take(4)
+                .ToList();
+
+            return properties;
         }
     }
 }

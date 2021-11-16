@@ -10,7 +10,7 @@
 
         Task EditAsync(PropertyDetailsModel input);
 
-        Task DeleteAsync(string id);
+        Task DeleteAsync(string propertyId, string userId);
 
         PropertyDetailsModel GetById(string id);
 
