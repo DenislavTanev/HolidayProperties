@@ -1,7 +1,18 @@
-﻿import React from 'react';
-import ListExtensionProperty from './ListExtensionProperty';
+﻿import React, { useEffect, useState } from 'react';
+import ListProperty from './ListProperty';
+import * as propertyService from '../../Services/propertyService';
 
-function PropertiesList() {
+const PropertiesList = () => {
+
+    const [properties, SetProperties] = useState([]);
+
+    useEffect(() => {
+        propertyService.getAll()
+            .then(result => {
+                SetProperties(result);
+            })
+    }, []);
+
     return (
         <>
             <section className="intro-single">
@@ -32,31 +43,17 @@ function PropertiesList() {
             <section className="property-grid grid">
                 <div className="container">
                     <div className="row">
-                        <div className="col-sm-12">
-                            <div className="grid-option">
-                                <form>
-                                    <select className="custom-select">
-                                        <option selected>All</option>
-                                        <option value="1">New to Old</option>
-                                        <option value="2">For Rent</option>
-                                        <option value="3">For Sale</option>
-                                    </select>
-                                </form>
-                            </div>
-                        </div>
-                        <ListExtensionProperty />
-                        <ListExtensionProperty />
-                        <ListExtensionProperty />
-                        <ListExtensionProperty />
-                        <ListExtensionProperty />
-                        <ListExtensionProperty />
+                        {properties.length > 0
+                            ? properties.map(x => <ListProperty key={x.id} property={x} />)
+                            : <h3>No properties yet</h3>
+                        }
                     </div>
                     <div className="row">
                         <div className="col-sm-12">
                             <nav className="pagination-a">
                                 <ul className="pagination justify-content-end">
                                     <li className="page-item disabled">
-                                        <a className="page-link" href="#" tabindex="-1">
+                                        <a className="page-link" href="#">
                                             <span className="bi bi-chevron-left"></span>
                                         </a>
                                     </li>
@@ -82,6 +79,8 @@ function PropertiesList() {
             </section>
         </>
     );
+
+
 };
 
-export { PropertiesList };
+export default PropertiesList;

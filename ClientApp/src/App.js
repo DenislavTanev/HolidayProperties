@@ -8,7 +8,7 @@ import { Contact } from './components/Contact';
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
-import { PropertiesList } from './components/Properties/PropertiesList';
+import PropertiesList from './components/PropertiesList/PropertiesList';
 import PropertyDetails from './components/PropertyDetails/PropertyDetails';
 
 export default class App extends Component {

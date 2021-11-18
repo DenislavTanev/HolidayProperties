@@ -18,7 +18,7 @@ namespace HolidayProperties.Services
             _context = context;
         }
 
-        public async Task CreateAsync(PropertyCreateModel input)
+        public async Task CreateAsync(PropertyCreateServiceModel input)
         {
             var property = new Property
             {
@@ -62,7 +62,7 @@ namespace HolidayProperties.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task EditAsync(PropertyDetailsModel input)
+        public async Task EditAsync(PropertyDetailsServiceModel input)
         {
             var property = await _context.Properties
                 .FirstOrDefaultAsync(x => x.Id == input.Id);
@@ -78,18 +78,18 @@ namespace HolidayProperties.Services
             await _context.SaveChangesAsync();
         }
 
-        public IEnumerable<PropertyModel> GetAll()
+        public IEnumerable<PropertyServiceModel> GetAll()
         {
             var properties = _context.Properties
                 .Where(x => x.IsDeleted == false)
-                .Select(p => new PropertyModel
+                .Select(p => new PropertyServiceModel
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Type = p.Type,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
-                    Images = p.Images.Select(i => new ImageModel
+                    Images = p.Images.Select(i => new ImageServiceModel
                     {
                         Id = i.Id,
                         Img = i.Img,
@@ -100,18 +100,18 @@ namespace HolidayProperties.Services
             return properties;
         }
 
-        public IEnumerable<PropertyModel> GetAllByType(string type)
+        public IEnumerable<PropertyServiceModel> GetAllByType(string type)
         {
             var properties = _context.Properties
                 .Where(x => x.IsDeleted == false && x.Type == type)
-                .Select(p => new PropertyModel
+                .Select(p => new PropertyServiceModel
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Type = p.Type,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
-                    Images = p.Images.Select(i => new ImageModel
+                    Images = p.Images.Select(i => new ImageServiceModel
                     {
                         Id = i.Id,
                         Img = i.Img,
@@ -122,11 +122,11 @@ namespace HolidayProperties.Services
             return properties;
         }
 
-        public PropertyDetailsModel GetById(string id)
+        public PropertyDetailsServiceModel GetById(string id)
         {
             var property = _context.Properties
                 .Where(x => x.IsDeleted == false && x.Id == id)
-                .Select(p => new PropertyDetailsModel
+                .Select(p => new PropertyDetailsServiceModel
                 {
                     Id = p.Id,
                     Name = p.Name,
@@ -135,7 +135,7 @@ namespace HolidayProperties.Services
                     Description = p.Description,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
-                    Images = p.Images.Select(i => new ImageModel
+                    Images = p.Images.Select(i => new ImageServiceModel
                     {
                         Id = i.Id,
                         Img = i.Img,
@@ -146,11 +146,11 @@ namespace HolidayProperties.Services
             return property;
         }
 
-        public IEnumerable<PropertyModel> GetLatest()
+        public IEnumerable<PropertyServiceModel> GetLatest()
         {
             var properties = _context.Properties
                 .Where(x => x.IsDeleted == false)
-                .Select(p => new PropertyModel
+                .Select(p => new PropertyServiceModel
                 {
                     Id = p.Id,
                     Name = p.Name,
@@ -158,7 +158,7 @@ namespace HolidayProperties.Services
                     Price = p.Price,
                     OwnerId = p.OwnerId,
                     CreatedOn = p.CreatedOn,
-                    Images = p.Images.Select(i => new ImageModel
+                    Images = p.Images.Select(i => new ImageServiceModel
                     {
                         Id = i.Id,
                         Img = i.Img,

@@ -6,19 +6,19 @@
 
     public interface IPropertiesService
     {
-        Task CreateAsync(PropertyCreateModel input);
+        Task CreateAsync(PropertyCreateServiceModel input);
 
-        Task EditAsync(PropertyDetailsModel input);
+        Task EditAsync(PropertyDetailsServiceModel input);
 
         Task DeleteAsync(string propertyId, string userId);
 
-        PropertyDetailsModel GetById(string id);
+        PropertyDetailsServiceModel GetById(string id);
 
-        IEnumerable<PropertyModel> GetAllByType(string type);
+        IEnumerable<PropertyServiceModel> GetAllByType(string type);
 
-        IEnumerable<PropertyModel> GetLatest();
+        IEnumerable<PropertyServiceModel> GetLatest();
 
-        IEnumerable<PropertyModel> GetAll();
+        IEnumerable<PropertyServiceModel> GetAll();
 
     }
 }

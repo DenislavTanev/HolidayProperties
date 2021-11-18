@@ -2,8 +2,10 @@
 {
     using System.Collections.Generic;
 
-    public class PropertyCreateModel
+    public class PropertyDetailsServiceModel
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
         public string Address { get; set; }
@@ -16,6 +18,6 @@
 
         public string OwnerId { get; set; }
 
-        public ICollection<byte[]> Images { get; set; }
+        public ICollection<ImageServiceModel> Images { get; set; }
     }
 }

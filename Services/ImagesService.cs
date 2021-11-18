@@ -18,7 +18,7 @@ namespace HolidayProperties.Services
             _context = context;
         }
 
-        public async Task CreateAsync(ImageCreateModel input)
+        public async Task CreateAsync(ImageCreateServiceModel input)
         {
             var img = new Image
             {
@@ -45,11 +45,11 @@ namespace HolidayProperties.Services
             await _context.SaveChangesAsync();
         }
 
-        public ImageModel GetById(string id)
+        public ImageServiceModel GetById(string id)
         {
             var img = _context.Images
                  .Where(x => x.Id == id && x.IsDeleted == false)
-                 .Select(x => new ImageModel
+                 .Select(x => new ImageServiceModel
                  {
                      Id = x.Id,
                      Img = x.Img,
@@ -59,11 +59,11 @@ namespace HolidayProperties.Services
             return img;
         }
 
-        public IEnumerable<ImageModel> GetByProperty(string propertyId)
+        public IEnumerable<ImageServiceModel> GetByProperty(string propertyId)
         {
             var imgs = _context.Images
                 .Where(x => x.PropertyId == propertyId && x.IsDeleted == false)
-                .Select(x => new ImageModel
+                .Select(x => new ImageServiceModel
                 {
                     Id = x.Id,
                     Img = x.Img,

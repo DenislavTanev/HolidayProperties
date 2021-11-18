@@ -7,12 +7,12 @@
 
     public interface IImagesService
     {
-        Task CreateAsync(ImageCreateModel input);
+        Task CreateAsync(ImageCreateServiceModel input);
 
         Task DeleteAsync(string id);
 
-        ImageModel GetById(string id);
+        ImageServiceModel GetById(string id);
 
-        IEnumerable<ImageModel> GetByProperty(string propertyId);
+        IEnumerable<ImageServiceModel> GetByProperty(string propertyId);
     }
 }

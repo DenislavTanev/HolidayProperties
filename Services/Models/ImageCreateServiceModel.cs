@@ -1,9 +1,9 @@
 ﻿namespace HolidayProperties.Services.Models
 {
-    public class ImageModel
+    public class ImageCreateServiceModel
     {
-        public string Id { get; set; }
-
         public byte[] Img { get; set; }
+
+        public string PropertyId { get; set; }
     }
 }

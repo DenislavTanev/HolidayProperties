@@ -1,4 +1,5 @@
 using HolidayProperties.Data;
+using HolidayProperties.Data.Models;
 using HolidayProperties.Models;
 using HolidayProperties.Services;
 using Microsoft.AspNetCore.Authentication;

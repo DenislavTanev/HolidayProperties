@@ -1,13 +1,14 @@
 ﻿namespace HolidayProperties.Services.Models
 {
-    using System;
     using System.Collections.Generic;
 
-    public class PropertyModel
+    public class PropertyCreateServiceModel
     {
-        public string Id { get; set; }
-
         public string Name { get; set; }
+
+        public string Address { get; set; }
+
+        public string Description { get; set; }
 
         public string Type { get; set; }
 
@@ -15,8 +16,6 @@
 
         public string OwnerId { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
-        public ICollection<ImageModel> Images { get; set; }
+        public ICollection<byte[]> Images { get; set; }
     }
 }

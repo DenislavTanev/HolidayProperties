@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import SwiperExtensionProperty from './SwiperExtensionProperty';
+import SwiperProperty from './SwiperProperty';
 
 const LatestProperties = () => {
 
@@ -24,13 +24,13 @@ const LatestProperties = () => {
                 <div id="property-carousel" className="swiper">
                     <div className="swiper-wrapper">
 
-                        <SwiperExtensionProperty />
+                        <SwiperProperty />
 
-                        <SwiperExtensionProperty />
+                        <SwiperProperty />
 
-                        <SwiperExtensionProperty />
+                        <SwiperProperty />
 
-                        <SwiperExtensionProperty />
+                        <SwiperProperty />
                     </div>
                 </div>
                 <div className="propery-carousel-pagination carousel-pagination"></div>

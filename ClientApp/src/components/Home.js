@@ -1,7 +1,7 @@
 import React from 'react';
 import { IntroSwiper } from './IntroSwiper/IntroSwiper';
 import { Services } from './Services/Services';
-import LatestProperties from './Properties/LatestProperties';
+import LatestProperties from './LatestProperties/LatestProperties';
 import { Testimonials } from './Testimonials/Testimonials';
 
 
