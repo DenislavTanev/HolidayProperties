@@ -4,11 +4,14 @@
 
     using Microsoft.AspNetCore.Identity;
 
-    public class User : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
-        public string ImageId { get; set; }
+        public ApplicationUser()
+        {
+            this.Properties = new HashSet<Property>();
+        }
 
-        public Image Image { get; set; }
+        public byte[] ProfilePic { get; set; }
 
         public ICollection<Property> Properties { get; set; }
     }

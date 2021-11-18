@@ -26,6 +26,6 @@
 
         public string OwnerId { get; set; }
 
-        public User Owner { get; set; }
+        public ApplicationUser Owner { get; set; }
     }
 }
