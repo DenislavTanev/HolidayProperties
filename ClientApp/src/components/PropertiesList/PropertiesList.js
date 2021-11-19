@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react';
 import ListProperty from './ListProperty';
 import * as propertyService from '../../Services/propertyService';
+import { Link } from 'react-router-dom';
 
 const PropertiesList = () => {
 
@@ -28,7 +29,7 @@ const PropertiesList = () => {
                             <nav aria-label="breadcrumb" className="breadcrumb-box d-flex justify-content-lg-end">
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item">
-                                        <a href="#">Home</a>
+                                        <Link to="/">Home</Link>
                                     </li>
                                     <li className="breadcrumb-item active" aria-current="page">
                                         Properties Grid

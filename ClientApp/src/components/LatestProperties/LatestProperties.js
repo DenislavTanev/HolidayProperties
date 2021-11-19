@@ -1,7 +1,17 @@
-﻿import React from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import SwiperProperty from './SwiperProperty';
+import * as propertyService from '../../Services/propertyService';
 
 const LatestProperties = () => {
+
+    const [properties, SetProperties] = useState([]);
+
+    useEffect(() => {
+        propertyService.getLatest()
+            .then(result => {
+                SetProperties(result);
+            })
+    }, []);
 
     return (
         <section className="section-property section-t8">
@@ -23,14 +33,10 @@ const LatestProperties = () => {
 
                 <div id="property-carousel" className="swiper">
                     <div className="swiper-wrapper">
-
-                        <SwiperProperty />
-
-                        <SwiperProperty />
-
-                        <SwiperProperty />
-
-                        <SwiperProperty />
+                        {properties.length > 0
+                            ? properties.map(x => <SwiperProperty key={x.id} property={x} />)
+                            : <h3>No properties yet</h3>
+                        }
                     </div>
                 </div>
                 <div className="propery-carousel-pagination carousel-pagination"></div>

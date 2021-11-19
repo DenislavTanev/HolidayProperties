@@ -12,13 +12,13 @@ const SwiperProperty = ({ property, }) => {
                     <div className="card-overlay-a-content">
                         <div className="card-header-a">
                             <h2 className="card-title-a">
-                                <a href="property-single.html"> {}
-                                    <br />{}</a>
+                                <a href="property-single.html"> {property.name}
+                                    <br />{property.type}</a>
                             </h2>
                         </div>
                         <div className="card-body-a">
                             <div className="price-box d-flex">
-                                <span className="price-a">rent | $ {}</span>
+                                <span className="price-a">rent | $ {property.price}</span>
                             </div>
                             <a href="#" className="link-a">Click here to view
                                             <span className="bi bi-chevron-right"></span>
