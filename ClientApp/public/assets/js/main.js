@@ -1,3 +1,5 @@
+
+
 /**
 * Template Name: EstateAgency - v4.6.0
 * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
@@ -101,7 +103,7 @@
   /**
    * Intro Carousel
    */
-  new Swiper('.intro-carousel', {
+    new Swiper('.intro-carousel', {
     speed: 600,
     loop: true,
     autoplay: {

@@ -1,7 +1,10 @@
-﻿using HolidayProperties.Models;
+﻿using HolidayProperties.Data.Models;
+using HolidayProperties.Models;
 using HolidayProperties.Services;
 using HolidayProperties.Services.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,7 +16,7 @@ namespace HolidayProperties.Controllers
 {
 
     [ApiController]
-    [Route("[controller]")]
+    [Route("properties")]
     public class PropertiesController : ControllerBase
     {
         private readonly IPropertiesService _propertiesService;
@@ -66,14 +69,13 @@ namespace HolidayProperties.Controllers
             return properties;
         }
 
-        [HttpGet("id")]
-        [Route("[controller]/{id}")]
-        public PropertyDetailsServiceModel GetById(string id)
+        [HttpGet]
+        [Route("getbyid")]
+        public IActionResult GetById(string id)
         {
-            var property = _propertiesService
-                .GetById(id);
+            var property = _propertiesService.GetById(id);
 
-            return property;
+            return this.Ok(property);
         }
 
         [HttpGet("latest")]
@@ -83,6 +85,17 @@ namespace HolidayProperties.Controllers
                 .GetLatest();
 
             return properties;
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Create(PropertyCreateServiceModel data)
+        {
+            var userId = this.User.Id();
+
+            await this._propertiesService.CreateAsync(data);
+
+            return this.Ok("Property created successfully!");
         }
     }
 }

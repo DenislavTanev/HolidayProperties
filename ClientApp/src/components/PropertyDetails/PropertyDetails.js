@@ -1,7 +1,19 @@
-﻿import React from 'react';
+﻿import React, { useEffect, useState } from 'react';
+import * as propertyService from '../../Services/propertyService';
 
-const PropertyDetails = () => {
+
+const PropertyDetails = ({ match, }) => {
     const imgUrl = "assets/img/slide-2.jpg";
+
+    const [property, setProperty] = useState({});
+
+    useEffect(() => {
+         propertyService.getOne(match.params.propertyId)
+             .then(res => {
+                 console.log(res);
+                setProperty(res);
+            })
+    }, []);
 
     return (
         <>
@@ -10,7 +22,7 @@ const PropertyDetails = () => {
                     <div className="row">
                         <div className="col-md-12 col-lg-8">
                             <div className="title-single-box">
-                                <h1 className="title-single">304 Blaster Up</h1>
+                                <h1 className="title-single">{property.name}</h1>
                                 <span className="color-text-a">Chicago, IL 606543</span>
                             </div>
                         </div>

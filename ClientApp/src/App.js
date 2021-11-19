@@ -11,17 +11,19 @@ import { ApplicationPaths } from './components/api-authorization/ApiAuthorizatio
 import PropertiesList from './components/PropertiesList/PropertiesList';
 import PropertyDetails from './components/PropertyDetails/PropertyDetails';
 
+import * as main from './main.js';
+
 export default class App extends Component {
     static displayName = App.name;
 
     componentDidMount() {
         const script = document.createElement("script");
 
-        script.async = true;
-
         script.src = "assets/js/main.js";
 
-        this.div.appendChild(script);
+        //script.innerHTML = main;
+
+        document.body.appendChild(script);
     }
 
     render() {
@@ -31,12 +33,11 @@ export default class App extends Component {
                     <Route exact path='/' component={Home} />
                     <Route path='/counter' component={Counter} />
                     <Route path='/contact' component={Contact} />
-                    <Route path='/properties' component={PropertiesList} />
-                    <Route path='/propertyDetails' component={PropertyDetails} />
+                    <Route exact path='/properties' component={PropertiesList} />
+                    <Route path='/properties/getbyid/:propertyId' component={PropertyDetails} />
                     <AuthorizeRoute path='/fetch-data' component={FetchData} />
                     <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
                 </Layout>
-                <div ref={el => (this.div = el)}></div>
             </>
         );
     }

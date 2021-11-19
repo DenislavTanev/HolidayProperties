@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ListProperty = ({ property, }) => {
 
@@ -20,9 +21,9 @@ const ListProperty = ({ property, }) => {
                             <div className="price-box d-flex">
                                 <span className="price-a">rent | $ {property.price}</span>
                             </div>
-                            <a href="#" className="link-a">Click here to view
+                            <Link to={`/properties/${property.id}`} className="link-a">Click here to view
                                             <span className="bi bi-chevron-right"></span>
-                            </a>
+                            </Link>
                         </div>
                         <div className="card-footer-a">
                             <ul className="card-info d-flex justify-content-around">

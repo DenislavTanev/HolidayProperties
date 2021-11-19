@@ -165,7 +165,7 @@ namespace HolidayProperties.Services
                     }).ToList(),
                 })
                 .OrderBy(x => x.CreatedOn)
-                .Take(4)
+                .Take(10)
                 .ToList();
 
             return properties;

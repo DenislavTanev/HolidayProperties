@@ -2,12 +2,11 @@
 export function getAll() {
     const data = fetch('properties').then((response) => response.json());
 
-    console.log(data);
     return data;
 }
 
 export function getOne(id) {
-    return fetch(`properties/${id}`)
+    return fetch(`properties/getbyid?id=${id}`)
         .then(res => res.json())
 }
 

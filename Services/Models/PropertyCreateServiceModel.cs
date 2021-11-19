@@ -16,6 +16,6 @@
 
         public string OwnerId { get; set; }
 
-        public ICollection<byte[]> Images { get; set; }
+        public IEnumerable<byte[]> Images { get; set; }
     }
 }
