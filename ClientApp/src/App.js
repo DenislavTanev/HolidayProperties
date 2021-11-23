@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout/Layout';
 import { Home } from './components/Home';
@@ -11,34 +11,32 @@ import { ApplicationPaths } from './components/api-authorization/ApiAuthorizatio
 import PropertiesList from './components/PropertiesList/PropertiesList';
 import PropertyDetails from './components/PropertyDetails/PropertyDetails';
 
-import * as main from './main.js';
+const App = () => {
 
-export default class App extends Component {
-    static displayName = App.name;
-
-    componentDidMount() {
+    useEffect(() => {
         const script = document.createElement("script");
 
         script.src = "assets/js/main.js";
-
-        //script.innerHTML = main;
+        script.async = true;
 
         document.body.appendChild(script);
-    }
 
-    render() {
-        return (
-            <>
-                <Layout>
-                    <Route exact path='/' component={Home} />
-                    <Route path='/counter' component={Counter} />
-                    <Route path='/contact' component={Contact} />
-                    <Route exact path='/properties' component={PropertiesList} />
-                    <Route path='/properties/getbyid/:propertyId' component={PropertyDetails} />
-                    <AuthorizeRoute path='/fetch-data' component={FetchData} />
-                    <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
-                </Layout>
-            </>
-        );
-    }
+    }, []);
+
+    return (
+        <>
+            <Layout>
+                <Route exact path='/' component={Home} />
+                <Route path='/counter' component={Counter} />
+                <Route path='/contact' component={Contact} />
+                <Route exact path='/properties' component={PropertiesList} />
+                <Route path='/properties/:propertyId' component={PropertyDetails} />
+                <AuthorizeRoute path='/fetch-data' component={FetchData} />
+                <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+            </Layout>
+        </>
+    );
+
 }
+
+export default App;

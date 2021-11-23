@@ -21,7 +21,7 @@ const SwiperProperty = ({ property, }) => {
                             <div className="price-box d-flex">
                                 <span className="price-a">rent | $ {property.price}</span>
                             </div>
-                            <Link to={`/properties/getbyid/${property.id}`} className="link-a">Click here to view
+                            <Link to={`/properties/${property.id}`} className="link-a">Click here to view
                                             <span className="bi bi-chevron-right"></span>
                             </Link>
                         </div>

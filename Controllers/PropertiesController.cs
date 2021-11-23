@@ -31,6 +31,7 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpGet]
+        [Route("getall")]
         public IEnumerable<PropertyServiceModel> GetAll()
         {
             var properties = _propertiesService
@@ -40,7 +41,7 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]/huts")]
+        [Route("huts")]
         public IEnumerable<PropertyServiceModel> GetHuts()
         {
             var properties = _propertiesService
@@ -50,7 +51,7 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]/houses")]
+        [Route("houses")]
         public IEnumerable<PropertyServiceModel> GetHouses()
         {
             var properties = _propertiesService
@@ -60,7 +61,7 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]/apartments")]
+        [Route("apartments")]
         public IEnumerable<PropertyServiceModel> GetApartments()
         {
             var properties = _propertiesService
@@ -78,7 +79,8 @@ namespace HolidayProperties.Controllers
             return this.Ok(property);
         }
 
-        [HttpGet("latest")]
+        [HttpGet]
+        [Route("latest")]
         public IEnumerable<PropertyServiceModel> GetLatest()
         {
             var properties = _propertiesService

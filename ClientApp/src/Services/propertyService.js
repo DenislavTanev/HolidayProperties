@@ -1,6 +1,6 @@
 ﻿
 export function getAll() {
-    const data = fetch('properties').then((response) => response.json());
+    const data = fetch('properties/getall').then((response) => response.json());
 
     return data;
 }
