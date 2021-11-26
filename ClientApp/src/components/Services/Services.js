@@ -9,18 +9,21 @@ function Services() {
             title: 'Apartments',
             description: '',
             icon: 'bi bi-building',
+            url: '/properties/apartment',
         },
         {
             id: '2',
             title: 'Houses',
             description: '',
             icon: 'bi bi-house',
+            url: '/properties/house',
         },
         {
             id: '3',
             title: 'Huts',
             description: '',
             icon: 'bi bi-shop',
+            url: '/properties/hut',
         },
     ]
 

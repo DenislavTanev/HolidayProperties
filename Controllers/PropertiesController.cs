@@ -31,41 +31,10 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpGet]
-        [Route("getall")]
-        public IEnumerable<PropertyServiceModel> GetAll()
+        public IEnumerable<PropertyServiceModel> GetByType(string type)
         {
             var properties = _propertiesService
-                .GetAll();
-
-            return properties;
-        }
-
-        [HttpGet]
-        [Route("huts")]
-        public IEnumerable<PropertyServiceModel> GetHuts()
-        {
-            var properties = _propertiesService
-                .GetAllByType("Hut");
-
-            return properties;
-        }
-
-        [HttpGet]
-        [Route("houses")]
-        public IEnumerable<PropertyServiceModel> GetHouses()
-        {
-            var properties = _propertiesService
-                .GetAllByType("House");
-
-            return properties;
-        }
-
-        [HttpGet]
-        [Route("apartments")]
-        public IEnumerable<PropertyServiceModel> GetApartments()
-        {
-            var properties = _propertiesService
-                .GetAllByType("Apartment");
+                .GetAllByType(type);
 
             return properties;
         }
@@ -90,14 +59,19 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> Create(PropertyCreateServiceModel data)
+        [Route("create")]
+        public async Task<IActionResult> Create([FromBody] PropertyCreateServiceModel data)
         {
-            var userId = this.User.Id();
+            //var userId = this.User.Id();
+            //data.ownerId = userId;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data.");
+            }
 
             await this._propertiesService.CreateAsync(data);
 
-            return this.Ok("Property created successfully!");
+            return this.Ok();
         }
     }
 }

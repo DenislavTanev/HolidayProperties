@@ -22,28 +22,28 @@ namespace HolidayProperties.Services
         {
             var property = new Property
             {
-                Name = input.Name,
-                Address = input.Address,
-                Description = input.Description,
-                Price = input.Price,
-                Type = input.Type,
-                OwnerId = input.OwnerId,
+                Name = input.name,
+                Address = input.address,
+                Description = input.description,
+                Price = input.price,
+                Type = input.type,
+                //OwnerId = input.ownerId,
                 CreatedOn = DateTime.UtcNow,
                 IsDeleted = false,
             };
 
             await _context.Properties.AddAsync(property);
 
-            foreach (var image in input.Images)
-            {
-                var img = new Image
-                {
-                    Img = image,
-                    PropertyId = property.Id,
-                };
-
-                await _context.Images.AddAsync(img);
-            }
+           //foreach (var image in input.images)
+           //{
+           //    var img = new Image
+           //    {
+           //        Img = image,
+           //        PropertyId = property.Id,
+           //    };
+           //
+           //    await _context.Images.AddAsync(img);
+           //}
 
             await _context.SaveChangesAsync();
         }
@@ -102,7 +102,15 @@ namespace HolidayProperties.Services
 
         public IEnumerable<PropertyServiceModel> GetAllByType(string type)
         {
-            var properties = _context.Properties
+            var properties = new List<PropertyServiceModel>();
+
+            if (type == "all")
+            {
+                properties = GetAll().ToList();
+            }
+            else
+            {
+                properties = _context.Properties
                 .Where(x => x.IsDeleted == false && x.Type == type)
                 .Select(p => new PropertyServiceModel
                 {
@@ -118,6 +126,7 @@ namespace HolidayProperties.Services
                     }).ToList(),
                 })
                 .ToList();
+            }
 
             return properties;
         }

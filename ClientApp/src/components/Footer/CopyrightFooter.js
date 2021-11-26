@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CopyrightFooter = () => {
 
@@ -10,22 +11,22 @@ const CopyrightFooter = () => {
                         <div className="socials-a">
                             <ul className="list-inline">
                                 <li className="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.facebook.com">
                                         <i className="bi bi-facebook" aria-hidden="true"></i>
                                     </a>
                                 </li>
                                 <li className="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://twitter.com">
                                         <i className="bi bi-twitter" aria-hidden="true"></i>
                                     </a>
                                 </li>
                                 <li className="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.instagram.com">
                                         <i className="bi bi-instagram" aria-hidden="true"></i>
                                     </a>
                                 </li>
                                 <li className="list-inline-item">
-                                    <a href="#">
+                                    <a href="https://www.linkedin.com/feed/">
                                         <i className="bi bi-linkedin" aria-hidden="true"></i>
                                     </a>
                                 </li>

@@ -2,13 +2,14 @@
 import ListProperty from './ListProperty';
 import * as propertyService from '../../Services/propertyService';
 import { Link } from 'react-router-dom';
+import TypeSelector from './TypeSelector';
 
-const PropertiesList = () => {
+const PropertiesList = ({ match, }) => {
 
     const [properties, SetProperties] = useState([]);
 
     useEffect(() => {
-        propertyService.getAll()
+        propertyService.getAll(match.params.type)
             .then(result => {
                 SetProperties(result);
             })
@@ -44,37 +45,12 @@ const PropertiesList = () => {
             <section className="property-grid grid">
                 <div className="container">
                     <div className="row">
+                        <TypeSelector />
+
                         {properties.length > 0
                             ? properties.map(x => <ListProperty key={x.id} property={x} />)
                             : <h3>No properties yet</h3>
                         }
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <nav className="pagination-a">
-                                <ul className="pagination justify-content-end">
-                                    <li className="page-item disabled">
-                                        <a className="page-link" href="#">
-                                            <span className="bi bi-chevron-left"></span>
-                                        </a>
-                                    </li>
-                                    <li className="page-item">
-                                        <a className="page-link" href="#">1</a>
-                                    </li>
-                                    <li className="page-item active">
-                                        <a className="page-link" href="#">2</a>
-                                    </li>
-                                    <li className="page-item">
-                                        <a className="page-link" href="#">3</a>
-                                    </li>
-                                    <li className="page-item next">
-                                        <a className="page-link" href="#">
-                                            <span className="bi bi-chevron-right"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </section>

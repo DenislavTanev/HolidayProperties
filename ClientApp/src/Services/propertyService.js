@@ -1,8 +1,7 @@
 ﻿
-export function getAll() {
-    const data = fetch('properties/getall').then((response) => response.json());
-
-    return data;
+export function getAll(type) {
+    return fetch(`properties?type=${type}`)
+        .then((response) => response.json());
 }
 
 export function getOne(id) {
@@ -13,4 +12,20 @@ export function getOne(id) {
 export function getLatest() {
     return fetch(`properties/latest`)
         .then(res => res.json())
+}
+
+export const create = async (propertyData) => {
+    let response = await fetch('properties/create', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify(propertyData)
+    });
+    console.log(propertyData);
+    let result = await response.json();
+
+    return result;
 }

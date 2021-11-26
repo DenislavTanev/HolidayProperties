@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react';
 import SwiperProperty from './SwiperProperty';
 import * as propertyService from '../../Services/propertyService';
+import { Link } from 'react-router-dom';
 
 const LatestProperties = () => {
 
@@ -23,9 +24,9 @@ const LatestProperties = () => {
                                 <h2 className="title-a">Latest Properties</h2>
                             </div>
                             <div className="title-link">
-                                <a href="property-grid.html">All Property
+                                <Link to="properties/all">All Property
                                 <span className="bi bi-chevron-right"></span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

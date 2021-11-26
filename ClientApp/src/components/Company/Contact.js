@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 
-function Contact() {
+const Contact = () => {
     return (
         <>
             <section className="intro-single">
@@ -159,4 +159,4 @@ function Contact() {
         </>
     );
 };
-export { Contact };
+export default Contact;

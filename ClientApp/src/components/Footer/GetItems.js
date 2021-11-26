@@ -5,17 +5,17 @@
         return [
             {
                 id: 'a1',
-                link: '/',
+                link: '/properties/hut',
                 title: 'Huts',
             },
             {
                 id: 'a2',
-                link: '/',
+                link: '/properties/house',
                 title: 'Houses',
             },
             {
                 id: 'a3',
-                link: '/',
+                link: '/properties/apartment',
                 title: 'Apartments',
             }
         ];
@@ -25,7 +25,7 @@
         return [
             {
                 id: 'b1',
-                link: '/',
+                link: '/aboutUs',
                 title: 'About',
             },
             {
@@ -35,12 +35,12 @@
             },
             {
                 id: 'b3',
-                link: '/',
+                link: '/privacy',
                 title: 'Privacy policy',
             },
             {
                 id: 'b4',
-                link: '/',
+                link: '/terms',
                 title: 'Terms of Service',
             }
         ];

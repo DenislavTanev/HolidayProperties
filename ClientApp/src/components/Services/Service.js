@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Service({ service, }) {
     return (
@@ -18,9 +19,9 @@ function Service({ service, }) {
                     </p>
                 </div>
                 <div className="card-footer-c">
-                    <a href="/properties" className="link-c link-icon">See more
+                    <Link to={service.url} className="link-c link-icon">See more
                              <span className="bi bi-chevron-right"></span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
