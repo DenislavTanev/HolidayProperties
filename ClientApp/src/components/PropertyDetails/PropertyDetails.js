@@ -13,7 +13,7 @@ const PropertyDetails = ({ match, }) => {
                  console.log(res);
                 setProperty(res);
             })
-    }, []);
+    }, [match.params.propertyId]);
 
     return (
         <>

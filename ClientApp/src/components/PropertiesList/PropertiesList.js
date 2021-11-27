@@ -12,8 +12,8 @@ const PropertiesList = ({ match, }) => {
         propertyService.getAll(match.params.type)
             .then(result => {
                 SetProperties(result);
-            })
-    }, []);
+            });
+    }, [match.params.type]);
 
     return (
         <>

@@ -1,6 +1,6 @@
 ﻿function GetItem(title) {
 
-    if (title == 'Properties') {
+    if (title === 'Properties') {
 
         return [
             {
@@ -20,7 +20,7 @@
             }
         ];
     }
-    else if (title == 'Company') {
+    else if (title === 'Company') {
 
         return [
             {

@@ -72,5 +72,12 @@ namespace HolidayProperties.Controllers
 
             return this.Ok("Created");
         }
+
+        [HttpGet]
+        [Route("user")]
+        public string UserId()
+        {
+            return this.User.Id();
+        }
     }
 }

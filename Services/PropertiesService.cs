@@ -173,7 +173,7 @@ namespace HolidayProperties.Services
                         Img = i.Img,
                     }).ToList(),
                 })
-                .OrderBy(x => x.CreatedOn)
+                .OrderByDescending(x => x.CreatedOn)
                 .Take(10)
                 .ToList();
 

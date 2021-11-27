@@ -30,3 +30,8 @@ export const create = async (propertyData) => {
 
     return result;
 }
+
+export const userId = () => {
+    return fetch('properties/user')
+        .then(res => res.json())
+}
