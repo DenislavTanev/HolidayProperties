@@ -59,7 +59,6 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpPost]
-        [Route("create")]
         public async Task<IActionResult> Create([FromBody] PropertyCreateServiceModel data)
         {
             //var userId = this.User.Id();
@@ -71,7 +70,7 @@ namespace HolidayProperties.Controllers
 
             await this._propertiesService.CreateAsync(data);
 
-            return this.Ok();
+            return this.Ok("Created");
         }
     }
 }
