@@ -5,6 +5,7 @@ using HolidayProperties.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -60,6 +61,7 @@ namespace HolidayProperties
                 configuration.RootPath = "ClientApp/build";
             });
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IImagesService, ImagesService>();
             services.AddTransient<IPropertiesService, PropertiesService>();
         }

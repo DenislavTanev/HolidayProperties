@@ -4,6 +4,7 @@ using HolidayProperties.Services.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,23 +28,33 @@ namespace HolidayProperties.Services
                 Description = input.description,
                 Price = input.price,
                 Type = input.type,
-                //OwnerId = input.ownerId,
+                OwnerId = input.ownerId,
                 CreatedOn = DateTime.UtcNow,
                 IsDeleted = false,
             };
 
             await _context.Properties.AddAsync(property);
 
-           //foreach (var image in input.images)
-           //{
-           //    var img = new Image
-           //    {
-           //        Img = image,
-           //        PropertyId = property.Id,
-           //    };
-           //
-           //    await _context.Images.AddAsync(img);
-           //}
+            foreach (var image in input.images)
+           {
+                if (image.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        image.CopyTo(ms);
+                        var fileBytes = ms.ToArray();
+
+                        var img = new Image
+                        {
+                            Img = fileBytes,
+                            PropertyId = property.Id,
+                            CreatedOn = DateTime.UtcNow,
+                        };
+
+                        await _context.Images.AddAsync(img);
+                    }
+                }
+           }
 
             await _context.SaveChangesAsync();
         }

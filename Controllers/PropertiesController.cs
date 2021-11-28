@@ -21,13 +21,19 @@ namespace HolidayProperties.Controllers
     {
         private readonly IPropertiesService _propertiesService;
         private readonly ILogger _logger;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
 
         public PropertiesController(
             IPropertiesService propertiesService,
-            ILogger<PropertiesController> logger)
+            ILogger<PropertiesController> logger,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
         {
             _propertiesService = propertiesService;
             _logger = logger;
+            this.userManager = userManager;
+            this.signInManager = signInManager;
         }
 
         [HttpGet]
@@ -59,10 +65,8 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] PropertyCreateServiceModel data)
+        public async Task<IActionResult> Create([FromForm] PropertyCreateServiceModel data)
         {
-            //var userId = this.User.Id();
-            //data.ownerId = userId;
             if (!ModelState.IsValid)
             {
                 return BadRequest("Invalid data.");
@@ -71,13 +75,6 @@ namespace HolidayProperties.Controllers
             await this._propertiesService.CreateAsync(data);
 
             return this.Ok("Created");
-        }
-
-        [HttpGet]
-        [Route("user")]
-        public string UserId()
-        {
-            return this.User.Id();
         }
     }
 }

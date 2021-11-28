@@ -14,24 +14,20 @@ export function getLatest() {
         .then(res => res.json())
 }
 
-export const create = async (propertyData) => {
-    let response = await fetch('properties', {
-        method: 'POST',
-        //mode: 'no-cors',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        },
-        body: JSON.stringify(propertyData)
-    });
-    console.log(propertyData);
-    let result = await response.json();
-
-    return result;
-}
-
-export const userId = () => {
-    return fetch('properties/user')
-        .then(res => res.json())
-}
+//export const create = async (propertyData) => {
+//    let response = await fetch('properties', {
+//        method: 'POST',
+//        //mode: 'no-cors',
+//        
+//        headers: {
+//            'Accept': 'application/json',
+//            'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryyEmKNDsBKjB7QEqu',
+//            'Access-Control-Allow-Origin': '*',
+//        },
+//        body: JSON.stringify(propertyData)
+//    });
+//    console.log(propertyData);
+//    let result = await response.json();
+//
+//    return result;
+//}

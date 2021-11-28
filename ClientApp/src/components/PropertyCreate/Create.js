@@ -1,10 +1,18 @@
-﻿import React from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { useHistory, } from 'react-router-dom';
-import * as propertyService from '../../Services/propertyService';
+import authService from '../api-authorization/AuthorizeService';
 
 import './Create.css';
 
 const Create = () => {
+    const [userId, SetUserId] = useState([]);
+
+    useEffect(() => {
+        authService.getUser()
+            .then(res => {
+                SetUserId(res.sub);
+            })
+    }, []);
 
     const history = useHistory();
 
@@ -12,23 +20,34 @@ const Create = () => {
         e.preventDefault();
         let formData = new FormData(e.currentTarget);
 
-        let name = formData.get('name');
-        let description = formData.get('description');
-        let address = formData.get('address');
-        let price = formData.get('price');
-        //let images = formData.get('images');
-        let type = formData.get('type');
+        console.log(formData);
 
-        propertyService.create({
-            name,
-            description,
-            address,
-            price,
-            type,
+        fetch('properties', {
+            method: 'POST',
+            body: formData
         })
-            .then(result => {
+            .then(res => {
                 history.push('/');
             })
+
+        //let name = formData.get('name');
+        //let description = formData.get('description');
+        //let address = formData.get('address');
+        //let price = formData.get('price');
+        //let images = formData.get('images');
+        //let type = formData.get('type');
+        //
+        //propertyService.create({
+        //    name,
+        //    description,
+        //    address,
+        //    price,
+        //    type,
+        //    // images,
+        //})
+        //    .then(result => {
+        //        history.push('/');
+        //    })
     }
 
     return (
@@ -77,11 +96,14 @@ const Create = () => {
                             </select>
                         </span>
                     </div>
+                    <div className='field'>
+                        <input type='text' name='ownerId' id='ownerId' defaultValue={userId} hidden />
+                    </div>
                     <input className="button submit" type="submit" value="Add Property" />
                 </fieldset>
             </form>
         </section>
-        );
+    );
 }
 
 export default Create;

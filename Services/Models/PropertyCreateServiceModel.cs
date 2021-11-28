@@ -1,5 +1,6 @@
 ﻿namespace HolidayProperties.Services.Models
 {
+    using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
 
     public class PropertyCreateServiceModel
@@ -14,8 +15,8 @@
 
         public string type { get; set; }
 
-        //public string ownerId { get; set; }
+        public string ownerId { get; set; }
 
-        //public IEnumerable<byte[]> images { get; set; }
+        public IEnumerable<IFormFile> images { get; set; }
     }
 }
