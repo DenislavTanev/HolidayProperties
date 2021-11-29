@@ -17,6 +17,6 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public ICollection<ImageServiceModel> Images { get; set; }
+        public string Image { get; set; }
     }
 }

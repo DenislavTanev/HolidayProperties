@@ -72,5 +72,19 @@ namespace HolidayProperties.Services
 
             return imgs;
         }
+
+        public ImageServiceModel GetOneByProperty(string propertyId)
+        {
+            var img = _context.Images
+                .Where(x => x.PropertyId == propertyId && x.IsDeleted == false)
+                .Select(x => new ImageServiceModel
+                {
+                    Id = x.Id,
+                    Img = x.Img,
+                })
+                .FirstOrDefault();
+
+            return img;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as propertyService from '../../Services/propertyService';
+import Images from './Image';
 
 
 const PropertyDetails = ({ match, }) => {
@@ -9,9 +10,9 @@ const PropertyDetails = ({ match, }) => {
     const [property, setProperty] = useState({});
 
     useEffect(() => {
-         propertyService.getOne(match.params.propertyId)
-             .then(res => {
-                 console.log(res);
+        propertyService.getOne(match.params.propertyId)
+            .then(res => {
+                console.log(res);
                 setProperty(res);
             })
     }, [match.params.propertyId]);
@@ -52,12 +53,10 @@ const PropertyDetails = ({ match, }) => {
                         <div className="col-lg-8">
                             <div id="property-single-carousel" className="swiper">
                                 <div className="swiper-wrapper">
-                                    <div className="carousel-item-b swiper-slide">
-                                        <img src={ imgUrl } alt="" />
-                                    </div>
-                                    <div className="carousel-item-b swiper-slide">
-                                        <img src={ imgUrl } alt="" />
-                                    </div>
+                                    {property.images != null
+                                        ? property.images.map(x => <Images key={x} img={x} />)
+                                        : <Images img={imgUrl} />, <Images img={imgUrl} />
+                                        }
                                 </div>
                             </div>
                             <div className="property-single-carousel-pagination carousel-pagination"></div>
@@ -75,7 +74,7 @@ const PropertyDetails = ({ match, }) => {
                                                 <span className="bi bi-cash">$</span>
                                             </div>
                                             <div className="card-title-c align-self-center">
-                                                <h5 className="title-c">{ property.price}</h5>
+                                                <h5 className="title-c">{property.price}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +98,7 @@ const PropertyDetails = ({ match, }) => {
                                                 </li>
                                                 <li className="d-flex justify-content-between">
                                                     <strong>Property Type:</strong>
-                                                    <span>{ property.type}</span>
+                                                    <span>{property.type}</span>
                                                 </li>
                                                 <li className="d-flex justify-content-between">
                                                     <strong>Area:</strong>
@@ -159,8 +158,8 @@ const PropertyDetails = ({ match, }) => {
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
             </section>

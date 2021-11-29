@@ -27,5 +27,13 @@
         public string OwnerId { get; set; }
 
         public ApplicationUser Owner { get; set; }
+
+        public double Area { get; set; }
+
+        public int Beds { get; set; }
+
+        public int Capacity { get; set; }
+
+        public int Garages { get; set; }
     }
 }

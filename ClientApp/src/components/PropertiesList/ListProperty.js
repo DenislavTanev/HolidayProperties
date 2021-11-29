@@ -7,7 +7,7 @@ const ListProperty = ({ property, }) => {
         <div className="col-md-4">
             <div className="card-box-a card-shadow">
                 <div className="img-box-a">
-                    <img src="assets/img/property-6.jpg" alt="" className="img-a img-fluid" />
+                    <img src={property.image != null ? property.image : "assets/img/property-5.jpg"} alt="" className="img-a img-fluid" />
                 </div>
                 <div className="card-overlay">
                     <div className="card-overlay-a-content">

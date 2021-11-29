@@ -13,10 +13,12 @@ namespace HolidayProperties.Services
     public class PropertiesService : IPropertiesService
     {
         private readonly ApplicationDbContext _context;
+        private readonly IImagesService imagesService;
 
-        public PropertiesService(ApplicationDbContext context)
+        public PropertiesService(ApplicationDbContext context, IImagesService imagesService)
         {
             _context = context;
+            this.imagesService = imagesService;
         }
 
         public async Task CreateAsync(PropertyCreateServiceModel input)
@@ -36,7 +38,7 @@ namespace HolidayProperties.Services
             await _context.Properties.AddAsync(property);
 
             foreach (var image in input.images)
-           {
+            {
                 if (image.Length > 0)
                 {
                     using (var ms = new MemoryStream())
@@ -54,7 +56,7 @@ namespace HolidayProperties.Services
                         await _context.Images.AddAsync(img);
                     }
                 }
-           }
+            }
 
             await _context.SaveChangesAsync();
         }
@@ -100,11 +102,6 @@ namespace HolidayProperties.Services
                     Type = p.Type,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
-                    Images = p.Images.Select(i => new ImageServiceModel
-                    {
-                        Id = i.Id,
-                        Img = i.Img,
-                    }).ToList(),
                 })
                 .ToList();
 
@@ -130,11 +127,6 @@ namespace HolidayProperties.Services
                     Type = p.Type,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
-                    Images = p.Images.Select(i => new ImageServiceModel
-                    {
-                        Id = i.Id,
-                        Img = i.Img,
-                    }).ToList(),
                 })
                 .ToList();
             }
@@ -155,13 +147,17 @@ namespace HolidayProperties.Services
                     Description = p.Description,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
-                    Images = p.Images.Select(i => new ImageServiceModel
-                    {
-                        Id = i.Id,
-                        Img = i.Img,
-                    }).ToList(),
                 })
                 .FirstOrDefault();
+
+            var images = imagesService.GetByProperty(property.Id).ToList();
+
+            property.Images = new List<string>();
+
+            foreach (var imgBytes in images)
+            {
+                property.Images.Add("data:image/jpeg;base64," + Convert.ToBase64String(imgBytes.Img));
+            }
 
             return property;
         }
@@ -178,11 +174,6 @@ namespace HolidayProperties.Services
                     Price = p.Price,
                     OwnerId = p.OwnerId,
                     CreatedOn = p.CreatedOn,
-                    Images = p.Images.Select(i => new ImageServiceModel
-                    {
-                        Id = i.Id,
-                        Img = i.Img,
-                    }).ToList(),
                 })
                 .OrderByDescending(x => x.CreatedOn)
                 .Take(10)

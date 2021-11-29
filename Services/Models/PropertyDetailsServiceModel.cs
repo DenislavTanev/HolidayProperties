@@ -18,6 +18,6 @@
 
         public string OwnerId { get; set; }
 
-        public ICollection<ImageServiceModel> Images { get; set; }
+        public ICollection<string> Images { get; set; }
     }
 }

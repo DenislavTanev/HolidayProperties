@@ -23,17 +23,20 @@ namespace HolidayProperties.Controllers
         private readonly ILogger _logger;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly IImagesService imagesService;
 
         public PropertiesController(
             IPropertiesService propertiesService,
             ILogger<PropertiesController> logger,
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            IImagesService imagesService)
         {
             _propertiesService = propertiesService;
             _logger = logger;
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.imagesService = imagesService;
         }
 
         [HttpGet]
@@ -41,6 +44,20 @@ namespace HolidayProperties.Controllers
         {
             var properties = _propertiesService
                 .GetAllByType(type);
+
+            foreach (var property in properties)
+            {
+                var image = imagesService.GetOneByProperty(property.Id);
+
+                if (image != null)
+                {
+                    property.Image = "data:image/png;base64," + Convert.ToBase64String(image.Img);
+                }
+                else
+                {
+                    property.Image = null;
+                }
+            }
 
             return properties;
         }
@@ -60,6 +77,20 @@ namespace HolidayProperties.Controllers
         {
             var properties = _propertiesService
                 .GetLatest();
+
+            foreach (var property in properties)
+            {
+                var image = imagesService.GetOneByProperty(property.Id);
+
+                if (image != null)
+                {
+                    property.Image = "data:image/png;base64," + Convert.ToBase64String(image.Img);
+                }
+                else
+                {
+                    property.Image = null;
+                }
+            }
 
             return properties;
         }

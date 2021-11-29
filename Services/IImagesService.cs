@@ -14,5 +14,7 @@
         ImageServiceModel GetById(string id);
 
         IEnumerable<ImageServiceModel> GetByProperty(string propertyId);
+
+        ImageServiceModel GetOneByProperty(string propertyId);
     }
 }
