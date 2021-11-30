@@ -79,6 +79,32 @@ const Create = () => {
                             <input type='number' name="price" id="price" placeholder="Price" />
                         </span>
                     </div>
+
+                    <div className="field">
+                        <label htmlFor="area">Area</label>
+                        <span className="input">
+                            <input type='number' name="area" id="area" placeholder="Area" />
+                        </span>
+                    </div>
+                    <div className="field">
+                        <label htmlFor="beds">Beds</label>
+                        <span className="input">
+                            <input type='number' name="beds" id="beds" placeholder="Beds" />
+                        </span>
+                    </div>
+                    <div className="field">
+                        <label htmlFor="capacity">Capacity</label>
+                        <span className="input">
+                            <input type='number' name="capacity" id="capacity" placeholder="Capacity" />
+                        </span>
+                    </div>
+                    <div className="field">
+                        <label htmlFor="garages">Garages</label>
+                        <span className="input">
+                            <input type='number' name="garages" id="garages" placeholder="Garages" />
+                        </span>
+                    </div>
+
                     <div className="field">
                         <label htmlFor="images">Images</label>
                         <span className="input">

@@ -29,21 +29,21 @@ const SwiperProperty = ({ property, }) => {
                             <ul className="card-info d-flex justify-content-around">
                                 <li>
                                     <h4 className="card-info-title">Area</h4>
-                                    <span>340m
+                                    <span>{ property.area}m
                                                     <sup>2</sup>
                                     </span>
                                 </li>
                                 <li>
                                     <h4 className="card-info-title">Beds</h4>
-                                    <span>2</span>
+                                    <span>{ property.beds}</span>
                                 </li>
                                 <li>
-                                    <h4 className="card-info-title">Baths</h4>
-                                    <span>4</span>
+                                    <h4 className="card-info-title">Capacity</h4>
+                                    <span>{ property.capacity}<sup>People</sup></span>
                                 </li>
                                 <li>
                                     <h4 className="card-info-title">Garages</h4>
-                                    <span>1</span>
+                                    <span>{property.garages}</span>
                                 </li>
                             </ul>
                         </div>

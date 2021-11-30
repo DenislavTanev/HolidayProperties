@@ -19,5 +19,13 @@
         public string OwnerId { get; set; }
 
         public ICollection<string> Images { get; set; }
+
+        public double Area { get; set; }
+
+        public int Beds { get; set; }
+
+        public int Capacity { get; set; }
+
+        public int Garages { get; set; }
     }
 }

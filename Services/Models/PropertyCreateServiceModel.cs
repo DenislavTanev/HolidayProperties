@@ -18,5 +18,13 @@
         public string ownerId { get; set; }
 
         public IEnumerable<IFormFile> images { get; set; }
+
+        public double area { get; set; }
+
+        public int beds { get; set; }
+
+        public int capacity { get; set; }
+
+        public int garages { get; set; }
     }
 }

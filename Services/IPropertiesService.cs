@@ -20,5 +20,6 @@
 
         IEnumerable<PropertyServiceModel> GetAll();
 
+        IEnumerable<PropertyServiceModel> GetAllByUser(string userId);
     }
 }

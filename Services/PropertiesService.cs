@@ -31,6 +31,10 @@ namespace HolidayProperties.Services
                 Price = input.price,
                 Type = input.type,
                 OwnerId = input.ownerId,
+                Area = input.area,
+                Beds = input.beds,
+                Capacity = input.capacity,
+                Garages = input.garages,
                 CreatedOn = DateTime.UtcNow,
                 IsDeleted = false,
             };
@@ -86,6 +90,11 @@ namespace HolidayProperties.Services
                 property.Address = input.Address;
                 property.Price = input.Price;
                 property.Description = input.Description;
+                property.Area = input.Area;
+                property.Beds = input.Beds;
+                property.Capacity = input.Capacity;
+                property.Garages = input.Garages;
+                property.ModifiedOn = DateTime.UtcNow;
             }
 
             await _context.SaveChangesAsync();
@@ -102,6 +111,10 @@ namespace HolidayProperties.Services
                     Type = p.Type,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
+                    Area = p.Area,
+                    Beds = p.Beds,
+                    Garages = p.Garages,
+                    Capacity = p.Capacity,
                 })
                 .ToList();
 
@@ -127,6 +140,10 @@ namespace HolidayProperties.Services
                     Type = p.Type,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
+                    Area = p.Area,
+                    Beds = p.Beds,
+                    Garages = p.Garages,
+                    Capacity = p.Capacity,
                 })
                 .ToList();
             }
@@ -147,6 +164,10 @@ namespace HolidayProperties.Services
                     Description = p.Description,
                     Price = p.Price,
                     OwnerId = p.OwnerId,
+                    Area = p.Area,
+                    Beds = p.Beds,
+                    Garages = p.Garages,
+                    Capacity = p.Capacity,
                 })
                 .FirstOrDefault();
 
@@ -174,9 +195,36 @@ namespace HolidayProperties.Services
                     Price = p.Price,
                     OwnerId = p.OwnerId,
                     CreatedOn = p.CreatedOn,
+                    Area = p.Area,
+                    Beds = p.Beds,
+                    Garages = p.Garages,
+                    Capacity = p.Capacity,
                 })
                 .OrderByDescending(x => x.CreatedOn)
                 .Take(10)
+                .ToList();
+
+            return properties;
+        }
+
+        public IEnumerable<PropertyServiceModel> GetAllByUser(string userId)
+        {
+            var properties = new List<PropertyServiceModel>();
+
+            properties = _context.Properties
+                .Where(x => x.IsDeleted == false && x.OwnerId == userId)
+                .Select(p => new PropertyServiceModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Type = p.Type,
+                    Price = p.Price,
+                    OwnerId = p.OwnerId,
+                    Area = p.Area,
+                    Beds = p.Beds,
+                    Garages = p.Garages,
+                    Capacity = p.Capacity,
+                })
                 .ToList();
 
             return properties;

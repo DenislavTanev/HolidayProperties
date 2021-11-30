@@ -5,7 +5,6 @@ import Images from './Image';
 
 
 const PropertyDetails = ({ match, }) => {
-    const imgUrl = "assets/img/slide-2.jpg";
 
     const [property, setProperty] = useState({});
 
@@ -55,7 +54,7 @@ const PropertyDetails = ({ match, }) => {
                                 <div className="swiper-wrapper">
                                     {property.images != null
                                         ? property.images.map(x => <Images key={x} img={x} />)
-                                        : <Images img={imgUrl} />, <Images img={imgUrl} />
+                                        : <h1>No Images</h1>
                                         }
                                 </div>
                             </div>
@@ -89,10 +88,6 @@ const PropertyDetails = ({ match, }) => {
                                         <div className="summary-list">
                                             <ul className="list">
                                                 <li className="d-flex justify-content-between">
-                                                    <strong>Property ID:</strong>
-                                                    <span>1134</span>
-                                                </li>
-                                                <li className="d-flex justify-content-between">
                                                     <strong>Location:</strong>
                                                     <span>Chicago, IL 606543</span>
                                                 </li>
@@ -102,21 +97,21 @@ const PropertyDetails = ({ match, }) => {
                                                 </li>
                                                 <li className="d-flex justify-content-between">
                                                     <strong>Area:</strong>
-                                                    <span>340m
+                                                    <span>{property.area}m
                                                        <sup>2</sup>
                                                     </span>
                                                 </li>
                                                 <li className="d-flex justify-content-between">
                                                     <strong>Beds:</strong>
-                                                    <span>4</span>
+                                                    <span>{property.beds}</span>
                                                 </li>
                                                 <li className="d-flex justify-content-between">
-                                                    <strong>Baths:</strong>
-                                                    <span>2</span>
+                                                    <strong>Capacity:</strong>
+                                                    <span>{property.capacity}</span>
                                                 </li>
                                                 <li className="d-flex justify-content-between">
                                                     <strong>Garage:</strong>
-                                                    <span>1</span>
+                                                    <span>{property.garages}</span>
                                                 </li>
                                             </ul>
                                         </div>
