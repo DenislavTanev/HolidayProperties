@@ -14,6 +14,11 @@ export function getLatest() {
         .then(res => res.json())
 }
 
+export function getByUser(userId) {
+    return fetch(`properties/getbyuser?userId=${userId}`)
+        .then(res => res.json())
+}
+
 //export const create = async (propertyData) => {
 //    let response = await fetch('properties', {
 //        method: 'POST',

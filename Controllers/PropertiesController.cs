@@ -72,6 +72,30 @@ namespace HolidayProperties.Controllers
         }
 
         [HttpGet]
+        [Route("getbyuser")]
+        public IEnumerable<PropertyServiceModel> GetByUser(string userId)
+        {
+            var properties = _propertiesService
+                .GetAllByUser(userId);
+
+            foreach (var property in properties)
+            {
+                var image = imagesService.GetOneByProperty(property.Id);
+
+                if (image != null)
+                {
+                    property.Image = "data:image/png;base64," + Convert.ToBase64String(image.Img);
+                }
+                else
+                {
+                    property.Image = null;
+                }
+            }
+
+            return properties;
+        }
+
+        [HttpGet]
         [Route("latest")]
         public IEnumerable<PropertyServiceModel> GetLatest()
         {
