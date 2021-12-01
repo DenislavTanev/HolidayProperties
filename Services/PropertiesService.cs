@@ -79,7 +79,7 @@ namespace HolidayProperties.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task EditAsync(PropertyDetailsServiceModel input)
+        public async Task EditAsync(PropertyEditServiceModel input)
         {
             var property = await _context.Properties
                 .FirstOrDefaultAsync(x => x.Id == input.Id);

@@ -8,7 +8,7 @@
     {
         Task CreateAsync(PropertyCreateServiceModel input);
 
-        Task EditAsync(PropertyDetailsServiceModel input);
+        Task EditAsync(PropertyEditServiceModel input);
 
         Task DeleteAsync(string propertyId, string userId);
 

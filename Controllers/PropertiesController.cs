@@ -131,5 +131,18 @@ namespace HolidayProperties.Controllers
 
             return this.Ok("Created");
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Edit([FromForm] PropertyEditServiceModel data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid data.");
+            }
+
+            await this._propertiesService.EditAsync(data);
+
+            return this.Ok("Updated");
+        }
     }
 }

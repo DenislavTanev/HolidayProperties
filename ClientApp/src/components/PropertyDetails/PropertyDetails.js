@@ -11,7 +11,6 @@ const PropertyDetails = ({ match, }) => {
     useEffect(() => {
         propertyService.getOne(match.params.propertyId)
             .then(res => {
-                console.log(res);
                 setProperty(res);
             })
     }, [match.params.propertyId]);

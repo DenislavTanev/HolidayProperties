@@ -12,6 +12,7 @@ import PropertiesList from './components/PropertiesList/PropertiesList';
 import PropertyDetails from './components/PropertyDetails/PropertyDetails';
 import Create from './components/PropertyCreate/Create';
 import Profile from './components/Profile/MyProperties';
+import Edit from './components/PropertyEdit/Edit';
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
                 <Route exact path='/' component={Home} />
                 <Route path='/counter' component={Counter} />
                 <Route path='/create' component={Create} />
+                <Route path='/edit/:propertyId' component={Edit} />
                 <Route path='/contact' component={Contact} />
                 <Route path='/aboutUs' component={AboutUs} />
                 <Route path='/privacy' component={PrivacyPolicy} />
