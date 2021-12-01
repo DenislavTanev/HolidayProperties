@@ -144,5 +144,13 @@ namespace HolidayProperties.Controllers
 
             return this.Ok("Updated");
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id, string userId)
+        {
+            await this._propertiesService.DeleteAsync(id, userId);
+
+            return this.Ok("Deleted");
+        }
     }
 }

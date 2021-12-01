@@ -31,12 +31,12 @@ const App = () => {
             <Layout>
                 <Route exact path='/' component={Home} />
                 <Route path='/counter' component={Counter} />
-                <Route path='/create' component={Create} />
-                <Route path='/edit/:propertyId' component={Edit} />
+                <AuthorizeRoute path='/create' component={Create} />
+                <AuthorizeRoute path='/edit/:propertyId' component={Edit} />
                 <Route path='/contact' component={Contact} />
                 <Route path='/aboutUs' component={AboutUs} />
                 <Route path='/privacy' component={PrivacyPolicy} />
-                <Route path='/profile' component={Profile} />
+                <AuthorizeRoute path='/profile' component={Profile} />
                 <Route path='/terms' component={Terms} />
                 <Route path='/properties/:type' component={PropertiesList} />
                 <Route path='/property/:propertyId' component={PropertyDetails} />

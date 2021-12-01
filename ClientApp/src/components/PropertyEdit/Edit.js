@@ -118,7 +118,7 @@ const Edit = ( { match, } ) => {
                     <div className='field'>
                         <input type='text' name='Id' id='Id' defaultValue={property.id} hidden />
                     </div>
-                    <input className="button submit" type="submit" value="Add Property" />
+                    <input className="button submit" type="submit" value="Update" />
                 </fieldset>
             </form>
         </section>

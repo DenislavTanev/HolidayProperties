@@ -54,7 +54,7 @@ const Profile = () => {
                     <div className="row">
 
                         {properties.length > 0
-                            ? properties.map(x => <SingleProperty key={x.id} property={x} />)
+                            ? properties.map(x => <SingleProperty key={x.id} property={x} userId={userId} />)
                             : <h3>No properties yet</h3>
                         }
                     </div>

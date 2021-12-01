@@ -1,7 +1,18 @@
 ﻿import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import * as propertyService from '../../Services/propertyService';
 
-const SingleProperty = ({ property, }) => {
+const SingleProperty = ({ property, userId }) => {
+
+    const history = useHistory();
+
+    const onDelete = () => {
+
+        propertyService.deleteProperty(property.id, userId)
+            .then(res => {
+                history.push('/profile');
+            })
+    }
 
     return (
         <div className="col-md-4">
@@ -29,9 +40,9 @@ const SingleProperty = ({ property, }) => {
                             <Link to={`/edit/${property.id}`} className="link-a">Edit
                                             <span className="bi bi-pencil"></span>
                             </Link>
-                            <Link to={`/property/${property.id}`} className="link-a">Delete
+                            <button className="link-a" onClick={onDelete}> Delete
                                             <span className="bi bi-trash"></span>
-                            </Link>
+                            </button>
                         </div>
                         <div className="card-footer-a">
                             <ul className="card-info d-flex justify-content-around">

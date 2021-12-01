@@ -19,6 +19,16 @@ export function getByUser(userId) {
         .then(res => res.json())
 }
 
+export function deleteProperty(id, userId) {
+
+    console.log(userId)
+
+    return fetch(`properties?id=${id}&userId=${userId}`, {
+        method: 'DELETE',
+    })
+        .then(res => res.json())
+}
+
 //export const create = async (propertyData) => {
 //    let response = await fetch('properties', {
 //        method: 'POST',
