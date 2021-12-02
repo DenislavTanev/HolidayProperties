@@ -36,7 +36,7 @@ const App = () => {
                 <Route path='/contact' component={Contact} />
                 <Route path='/aboutUs' component={AboutUs} />
                 <Route path='/privacy' component={PrivacyPolicy} />
-                <AuthorizeRoute path='/profile' component={Profile} />
+                <AuthorizeRoute path='/profile/:userId' component={Profile} />
                 <Route path='/terms' component={Terms} />
                 <Route path='/properties/:type' component={PropertiesList} />
                 <Route path='/property/:propertyId' component={PropertyDetails} />

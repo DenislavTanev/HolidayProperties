@@ -1,26 +1,18 @@
 ﻿import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as propertyService from '../../Services/propertyService';
-import authService from '../api-authorization/AuthorizeService';
 import SingleProperty from './SingleProperty';
 
-const Profile = () => {
+const Profile = ({ match, }) => {
 
     const [properties, SetProperties] = useState([]);
 
-    const [userId, SetUserId] = useState([]);
-
     useEffect(() => {
-        authService.getUser()
-            .then(res => {
-                SetUserId(res.sub);
-            })
-
-        propertyService.getByUser(userId)
+        propertyService.getByUser(match.params.userId)
             .then(res => {
                 SetProperties(res);
             });
-    }, [userId]);
+    }, [match.params.userId]);
 
     return (
         <>
@@ -54,7 +46,7 @@ const Profile = () => {
                     <div className="row">
 
                         {properties.length > 0
-                            ? properties.map(x => <SingleProperty key={x.id} property={x} userId={userId} />)
+                            ? properties.map(x => <SingleProperty key={x.id} property={x} userId={match.params.userId} />)
                             : <h3>No properties yet</h3>
                         }
                     </div>

@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { LoginMenu } from '../api-authorization/LoginMenu';
+import authService from '../api-authorization/AuthorizeService';
 
 function NavMenu() {
+
+    const [userId, SetUserId] = useState([]);
+
+    useEffect(() => {
+        authService.getUser()
+            .then(res => {
+                SetUserId(res.sub);
+            })
+    }, []);
 
     return (
         <header>
@@ -25,7 +35,7 @@ function NavMenu() {
                                 <NavLink tag={Link} className="text-dark" to="/create">Create</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="/profile">Profile</NavLink>
+                                <NavLink tag={Link} className="text-dark" to={`/profile/${userId}`}>Profile</NavLink>
                             </NavItem>
 
                             <NavItem>

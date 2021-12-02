@@ -27,7 +27,7 @@ const Create = () => {
             body: formData
         })
             .then(res => {
-                history.push('/');
+                history.push(`/profile/${userId}`);
             })
 
         //let name = formData.get('name');

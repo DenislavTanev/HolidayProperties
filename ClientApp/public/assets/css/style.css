@@ -1925,3 +1925,8 @@ footer .credits {
 .privacy {
     margin-top: 100px;
 }
+
+.delete-btn {
+    background: none;
+    border: none;
+}

@@ -10,7 +10,7 @@ const SingleProperty = ({ property, userId }) => {
 
         propertyService.deleteProperty(property.id, userId)
             .then(res => {
-                history.push('/profile');
+                history.push('/');
             })
     }
 
@@ -40,7 +40,7 @@ const SingleProperty = ({ property, userId }) => {
                             <Link to={`/edit/${property.id}`} className="link-a">Edit
                                             <span className="bi bi-pencil"></span>
                             </Link>
-                            <button className="link-a" onClick={onDelete}> Delete
+                            <button className="link-a delete-btn" onClick={onDelete}> Delete
                                             <span className="bi bi-trash"></span>
                             </button>
                         </div>
