@@ -1930,3 +1930,12 @@ footer .credits {
     background: none;
     border: none;
 }
+
+.form-el {
+    align-items: center;
+}
+
+    .form-el input {
+        border-radius: 10px;
+        border-color: #2ECA6A;
+    }

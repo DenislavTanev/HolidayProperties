@@ -54,65 +54,67 @@ const Create = () => {
         <section id="create-page" className="create-page">
             <form id="create-form" onSubmit={onPropertyCreate} method="POST">
                 <fieldset>
-                    <legend>Add new Property</legend>
-                    <div className="field">
+                    <div className='field form-el'>
+                        Add new Property
+                    </div>
+                    <div className="field form-el">
                         <label htmlFor="name">Name</label>
                         <span className="input">
                             <input type="text" name="name" id="name" placeholder="Name" />
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="description">Description</label>
                         <span className="input">
                             <textarea name="description" id="description" placeholder="Description"></textarea>
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="address">Address</label>
                         <span className="input">
                             <textarea name="address" id="address" placeholder="Address"></textarea>
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="price">Price</label>
                         <span className="input">
                             <input type='number' name="price" id="price" placeholder="Price" />
                         </span>
                     </div>
 
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="area">Area</label>
                         <span className="input">
                             <input type='number' name="area" id="area" placeholder="Area" />
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="beds">Beds</label>
                         <span className="input">
                             <input type='number' name="beds" id="beds" placeholder="Beds" />
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="capacity">Capacity</label>
                         <span className="input">
                             <input type='number' name="capacity" id="capacity" placeholder="Capacity" />
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="garages">Garages</label>
                         <span className="input">
                             <input type='number' name="garages" id="garages" placeholder="Garages" />
                         </span>
                     </div>
 
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="images">Images</label>
                         <span className="input">
                             <input type="file" name="images" id="images" placeholder="Images" multiple />
                         </span>
                     </div>
 
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="type">Type</label>
                         <span className="input">
                             <select id="type" name="type">
@@ -122,10 +124,12 @@ const Create = () => {
                             </select>
                         </span>
                     </div>
-                    <div className='field'>
+                    <div className='field form-el'>
                         <input type='text' name='ownerId' id='ownerId' defaultValue={userId} hidden />
                     </div>
-                    <input className="button submit" type="submit" value="Add Property" />
+                    <div className='field form-el'>
+                        <input className="button submit" type="submit" value="Add Property" />
+                    </div>
                 </fieldset>
             </form>
         </section>
