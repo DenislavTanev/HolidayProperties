@@ -16,16 +16,6 @@ import Edit from './components/PropertyEdit/Edit';
 
 const App = () => {
 
-    useEffect(() => {
-        const script = document.createElement("script");
-
-        script.src = "assets/js/main.js";
-        script.async = true;
-
-        document.body.appendChild(script);
-
-    }, []);
-
     return (
         <>
             <Layout>

@@ -1058,6 +1058,7 @@ body a:hover {
 .card-box-b,
 .card-box-d {
   position: relative;
+  height: 450px;
   overflow: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -1935,7 +1936,23 @@ footer .credits {
     align-items: center;
 }
 
-    .form-el input {
-        border-radius: 10px;
-        border-color: #2ECA6A;
-    }
+.form-el input {
+    border-radius: 10px;
+    border-color: #2ECA6A;
+}
+
+.textarea {
+    border-radius: 10px;
+    border-color: #2ECA6A;
+    width: 200px;
+}
+
+.btns{
+    margin-top:20px;
+}
+
+.form-title {
+    font-size: 1.75rem;
+    display: flex;
+    flex-direction: row;
+}

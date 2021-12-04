@@ -62,63 +62,67 @@ const Edit = ( { match, } ) => {
         <section id="create-page" className="create-page">
             <form id="create-form" onSubmit={onPropertyEdit} method="PUT">
                 <fieldset>
-                    <legend>Edit Property</legend>
-                    <div className="field">
+                    <div className='field form-el form-title'>
+                        Edit<span className="color-b">Property</span>
+                    </div>
+                    <div className="field form-el">
                         <label htmlFor="name">Name</label>
                         <span className="input">
                             <input type="text" name="name" id="name" value={property.name} onChange={handleChange} />
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="description">Description</label>
                         <span className="input">
-                            <textarea name="description" id="description" value={property.description} onChange={handleChange} ></textarea>
+                            <textarea className='textarea' name="description" id="description" value={property.description} onChange={handleChange} ></textarea>
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="address">Address</label>
                         <span className="input">
-                            <textarea name="address" id="address" value={property.address} onChange={handleChange}></textarea>
+                            <textarea className='textarea' name="address" id="address" value={property.address} onChange={handleChange}></textarea>
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="price">Price</label>
                         <span className="input">
                             <input type='number' name="price" id="price" value={property.price} onChange={handleChange}/>
                         </span>
                     </div>
 
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="area">Area</label>
                         <span className="input">
                             <input type='number' name="area" id="area" value={property.area} onChange={handleChange}/>
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="beds">Beds</label>
                         <span className="input">
                             <input type='number' name="beds" id="beds" value={property.beds} onChange={handleChange}/>
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="capacity">Capacity</label>
                         <span className="input">
                             <input type='number' name="capacity" id="capacity" value={property.capacity} onChange={handleChange}/>
                         </span>
                     </div>
-                    <div className="field">
+                    <div className="field form-el">
                         <label htmlFor="garages">Garages</label>
                         <span className="input">
                             <input type='number' name="garages" id="garages" value={property.garages} onChange={handleChange}/>
                         </span>
                     </div>
-                    <div className='field'>
+                    <div className='field form-el'>
                         <input type='text' name='ownerId' id='ownerId' defaultValue={userId} hidden />
                     </div>
-                    <div className='field'>
+                    <div className='field form-el'>
                         <input type='text' name='Id' id='Id' defaultValue={property.id} hidden />
                     </div>
-                    <input className="button submit" type="submit" value="Update" />
+                    <div className='field form-el'>
+                        <input className="button submit btns" type="submit" value="Update" />
+                    </div>
                 </fieldset>
             </form>
         </section>

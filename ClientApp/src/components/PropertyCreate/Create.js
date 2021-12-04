@@ -54,8 +54,8 @@ const Create = () => {
         <section id="create-page" className="create-page">
             <form id="create-form" onSubmit={onPropertyCreate} method="POST">
                 <fieldset>
-                    <div className='field form-el'>
-                        Add new Property
+                    <div className='field form-el form-title'>
+                        Add new<span className="color-b">Property</span>
                     </div>
                     <div className="field form-el">
                         <label htmlFor="name">Name</label>
@@ -66,13 +66,13 @@ const Create = () => {
                     <div className="field form-el">
                         <label htmlFor="description">Description</label>
                         <span className="input">
-                            <textarea name="description" id="description" placeholder="Description"></textarea>
+                            <textarea className='textarea' name="description" id="description" placeholder="Description"></textarea>
                         </span>
                     </div>
                     <div className="field form-el">
                         <label htmlFor="address">Address</label>
                         <span className="input">
-                            <textarea name="address" id="address" placeholder="Address"></textarea>
+                            <textarea className='textarea' name="address" id="address" placeholder="Address"></textarea>
                         </span>
                     </div>
                     <div className="field form-el">
@@ -128,7 +128,7 @@ const Create = () => {
                         <input type='text' name='ownerId' id='ownerId' defaultValue={userId} hidden />
                     </div>
                     <div className='field form-el'>
-                        <input className="button submit" type="submit" value="Add Property" />
+                        <input className="button submit btns" type="submit" value="Add Property" />
                     </div>
                 </fieldset>
             </form>

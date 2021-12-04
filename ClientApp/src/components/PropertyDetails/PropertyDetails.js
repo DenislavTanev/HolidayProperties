@@ -15,6 +15,16 @@ const PropertyDetails = ({ match, }) => {
             })
     }, [match.params.propertyId]);
 
+    useEffect(() => {
+        const script = document.createElement("script");
+
+        script.src = "assets/js/main.js";
+        script.async = true;
+
+        document.body.appendChild(script);
+
+    });
+
     return (
         <>
             <section className="intro-single">
