@@ -689,6 +689,7 @@ body a:hover {
   font-weight: 600;
   min-width: 220px;
 }
+
 .navbar-default .dropdown .dropdown-menu .dropdown-item:hover {
   background-color: #ffffff;
   color: #2eca6a;
@@ -1955,4 +1956,16 @@ footer .credits {
     font-size: 1.75rem;
     display: flex;
     flex-direction: row;
+}
+
+.addProp {
+    border: solid;
+    border-radius: 50%;
+    background-color: green;
+    padding: 6px;
+    padding-top: 0px;
+}
+
+.rounded-circle {
+    margin-top: 7px;
 }

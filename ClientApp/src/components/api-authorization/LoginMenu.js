@@ -10,7 +10,8 @@ export class LoginMenu extends Component {
 
         this.state = {
             isAuthenticated: false,
-            userName: null
+            userName: null,
+            userId: null,
         };
     }
 
@@ -24,15 +25,16 @@ export class LoginMenu extends Component {
     }
 
     async populateState() {
-        const [isAuthenticated, user] = await Promise.all([authService.isAuthenticated(), authService.getUser()])
+        const [isAuthenticated, user] = await Promise.all([authService.isAuthenticated(), authService.getUser()]);
         this.setState({
             isAuthenticated,
-            userName: user && user.name
+            userName: user && user.name,
+            userId: user && user.sub,
         });
     }
 
     render() {
-        const { isAuthenticated, userName } = this.state;
+        const { isAuthenticated, userName, userId } = this.state;
         if (!isAuthenticated) {
             const registerPath = `${ApplicationPaths.Register}`;
             const loginPath = `${ApplicationPaths.Login}`;
@@ -40,19 +42,25 @@ export class LoginMenu extends Component {
         } else {
             const profilePath = `${ApplicationPaths.Profile}`;
             const logoutPath = { pathname: `${ApplicationPaths.LogOut}`, state: { local: true } };
-            return this.authenticatedView(userName, profilePath, logoutPath);
+            return this.authenticatedView(userName, userId, profilePath, logoutPath);
         }
     }
 
-    authenticatedView(userName, profilePath, logoutPath) {
-        return (<Fragment>
-            <NavItem>
-                <NavLink tag={Link} className="text-dark" to={profilePath}>Hello {userName}</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink tag={Link} className="text-dark" to={logoutPath}>Logout</NavLink>
-            </NavItem>
-        </Fragment>);
+    authenticatedView(userName, userId, profilePath, logoutPath) {
+        return (
+            <div className="dropdown">
+                <img className="rounded-circle" role="button" id="dropdownMenuButton" style={{ height: '30px', width: '30px', }} src="https://hook.finance/sites/default/files/user.png"
+                    alt='..' data-holder-rendered="true" data-bs-toggle="dropdown" aria-expanded="false" />
+
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><Link className="dropdown-item" to={`/profile/${userId}`}>Profile</Link></li>
+                    <li><Link className="dropdown-item" to="/create">Add Property</Link></li>
+                    <li><Link className="dropdown-item" to={profilePath}>Settings</Link></li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li><Link className="dropdown-item" to={logoutPath}>Logout</Link></li>
+                </ul>
+            </div>
+        );
 
     }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout/Layout';
 import { Home } from './components/Home';
@@ -17,23 +17,21 @@ import Edit from './components/PropertyEdit/Edit';
 const App = () => {
 
     return (
-        <>
-            <Layout>
-                <Route exact path='/' component={Home} />
-                <Route path='/counter' component={Counter} />
-                <AuthorizeRoute path='/create' component={Create} />
-                <AuthorizeRoute path='/edit/:propertyId' component={Edit} />
-                <Route path='/contact' component={Contact} />
-                <Route path='/aboutUs' component={AboutUs} />
-                <Route path='/privacy' component={PrivacyPolicy} />
-                <AuthorizeRoute path='/profile/:userId' component={Profile} />
-                <Route path='/terms' component={Terms} />
-                <Route path='/properties/:type' component={PropertiesList} />
-                <Route path='/property/:propertyId' component={PropertyDetails} />
-                <AuthorizeRoute path='/fetch-data' component={FetchData} />
-                <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
-            </Layout>
-        </>
+        <Layout>
+            <Route exact path='/' component={Home} />
+            <Route path='/counter' component={Counter} />
+            <AuthorizeRoute path='/create' component={Create} />
+            <AuthorizeRoute path='/edit/:propertyId' component={Edit} />
+            <Route path='/contact' component={Contact} />
+            <Route path='/aboutUs' component={AboutUs} />
+            <Route path='/privacy' component={PrivacyPolicy} />
+            <AuthorizeRoute path='/profile/:userId' component={Profile} />
+            <Route path='/terms' component={Terms} />
+            <Route path='/properties/:type' component={PropertiesList} />
+            <Route path='/property/:propertyId' component={PropertyDetails} />
+            <AuthorizeRoute path='/fetch-data' component={FetchData} />
+            <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+        </Layout>
     );
 
 }

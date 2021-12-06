@@ -22,7 +22,7 @@ const Profile = ({ match, }) => {
                         <div className="col-md-12 col-lg-8">
                             <div className="title-single-box">
                                 <h1 className="title-single">My Properties</h1>
-                                <span className="color-text-a">Grid Properties</span>
+                                <span className="color-text-a">Add property <Link to='/create' className='addProp'>+</Link></span>
                             </div>
                         </div>
                         <div className="col-md-12 col-lg-4">

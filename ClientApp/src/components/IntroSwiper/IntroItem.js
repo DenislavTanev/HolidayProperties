@@ -1,10 +1,10 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
 
-function IntroItem() {
-    let bgImg = "url(assets/img/slide-1.jpg)";
+function IntroItem({ introItem, }) {
 
     return (
-        <div className="swiper-slide carousel-item-a intro-item bg-image" style={{ backgroundImage: bgImg }}>
+        <div className="swiper-slide carousel-item-a intro-item bg-image" style={{ backgroundImage: introItem.bgImg }}>
             <div className="overlay overlay-a"></div>
             <div className="intro-content display-table">
                 <div className="table-cell">
@@ -12,15 +12,12 @@ function IntroItem() {
                         <div className="row">
                             <div className="col-lg-8">
                                 <div className="intro-body">
-                                    <p className="intro-title-top">Doral, Florida
-                                               <br /> 78345
-                                            </p>
                                     <h1 className="intro-title mb-4 ">
-                                        <span className="color-b">204 </span> Mount
-                                               <br /> Olive Road Two
+                                        <span className="color-b">{introItem.titleSpan} </span> {introItem.titleH1}
+                                        <br /> {introItem.titleBr}
                                             </h1>
                                     <p className="intro-subtitle intro-price">
-                                        <a href="index.html"><span className="price-a">rent | $ 12.000</span></a>
+                                        <Link to={introItem.btnLink}><span className="price-a">{introItem.btnInfo}</span></Link>
                                     </p>
                                 </div>
                             </div>

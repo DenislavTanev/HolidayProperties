@@ -34,7 +34,7 @@ function Services() {
                     <div className="col-md-12">
                         <div className="title-wrap d-flex justify-content-between">
                             <div className="title-box">
-                                <h2 className="title-a">Our Services</h2>
+                                <h2 className="title-a">Categories</h2>
                             </div>
                         </div>
                     </div>
