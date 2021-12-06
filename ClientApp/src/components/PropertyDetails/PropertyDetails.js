@@ -98,7 +98,7 @@ const PropertyDetails = ({ match, }) => {
                                             <ul className="list">
                                                 <li className="d-flex justify-content-between">
                                                     <strong>Location:</strong>
-                                                    <span>Chicago, IL 606543</span>
+                                                    <span>{property.address}</span>
                                                 </li>
                                                 <li className="d-flex justify-content-between">
                                                     <strong>Property Type:</strong>
@@ -142,22 +142,19 @@ const PropertyDetails = ({ match, }) => {
                                     <div className="row section-t3">
                                         <div className="col-sm-12">
                                             <div className="title-box-d">
-                                                <h3 className="title-d">Amenities</h3>
+                                                <h3 className="title-d">Contacts</h3>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="amenities-list color-text-a">
-                                        <ul className="list-a no-margin">
-                                            <li>Balcony</li>
-                                            <li>Outdoor Kitchen</li>
-                                            <li>Cable Tv</li>
-                                            <li>Deck</li>
-                                            <li>Tennis Courts</li>
-                                            <li>Internet</li>
-                                            <li>Parking</li>
-                                            <li>Sun Room</li>
-                                            <li>Concrete Flooring</li>
-                                        </ul>
+                                        <div>
+                                            <label htmlFor="email">Email:</label>
+                                            <div name="email" id="email" className='details-contacts'>{property.email}</div>
+                                        </div>
+                                        <div>
+                                            <label htmlFor="phone">Phone:</label>
+                                            <div name="phone" id="phone" className='details-contacts'>{property.phoneNumber}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -22,7 +22,12 @@ function NavMenu() {
                             <NavItem>
                                 <NavLink tag={Link} className="text-dark" to='/properties/all'>Properties</NavLink>
                             </NavItem>
-
+                            <NavItem>
+                                <NavLink tag={Link} className="text-dark" to='/aboutUs'>About Us</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink tag={Link} className="text-dark" to='/contact'>Contacts</NavLink>
+                            </NavItem>
                             <LoginMenu>
                             </LoginMenu>
                         </ul>
