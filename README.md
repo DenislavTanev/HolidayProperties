@@ -1,25 +1,25 @@
 ## :eyeglasses: Project Introduction
 
-**HolidayProperties Website** is my defense project for **React JS** course at [SoftUni](https://softuni.bg/ "SoftUni") (Nov-Dec 2021). The website is part of a major project, and it will consist 2 parts(**DevCamp** and **DevLearn**).Each of two parts is a **Multipage** listing platform.The **Goal** is to create cool and interactive Ecosystem for developers and clients.
+**HolidayProperties Website** is my defense project for **React JS** course at [SoftUni](https://softuni.bg/ "SoftUni") (Nov-Dec 2021).
 
 ## :pencil2: Overview
 
 **Public Part:** 
 
--Home Page
--Properties Catalog
--Property Details
--Login
--Register
--About
--Contacts
+* -Home Page
+* -Properties Catalog
+* -Property Details
+* -Login
+* -Register
+* -About
+* -Contacts
 
 **Private Part:** 
 
--Profile View
--Create Form
--Edit Form
--Settings
+* -Profile View
+* -Create Form
+* -Edit Form
+* -Settings
 
 ## **Front-End**
 The web project contains:
@@ -88,4 +88,4 @@ The main entities are:
 - Add filtering to properties.
 - Add location to properties.
 - Add chat system.
-And more...
+- And more...
