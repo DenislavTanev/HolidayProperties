@@ -1064,12 +1064,16 @@ body a:hover {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+.img-box-a, .img-box-b {
+    height: 100%;
+}
 
 .card-box-a .img-a,
 .card-box-a .img-b,
 .card-box-b .img-a,
 .card-box-b .img-b {
   transition: 0.8s all ease-in-out;
+  height: 100%;
 }
 @media (min-width: 768px) {
   .card-box-a:hover .img-a,
