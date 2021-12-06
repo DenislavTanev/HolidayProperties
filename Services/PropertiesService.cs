@@ -35,6 +35,8 @@ namespace HolidayProperties.Services
                 Beds = input.beds,
                 Capacity = input.capacity,
                 Garages = input.garages,
+                Email = input.Email,
+                PhoneNumber = input.PhoneNumber,
                 CreatedOn = DateTime.UtcNow,
                 IsDeleted = false,
             };
@@ -94,6 +96,8 @@ namespace HolidayProperties.Services
                 property.Beds = input.Beds;
                 property.Capacity = input.Capacity;
                 property.Garages = input.Garages;
+                property.Email = input.Email;
+                property.PhoneNumber = input.PhoneNumber;
                 property.ModifiedOn = DateTime.UtcNow;
             }
 
@@ -168,6 +172,8 @@ namespace HolidayProperties.Services
                     Beds = p.Beds,
                     Garages = p.Garages,
                     Capacity = p.Capacity,
+                    Email = p.Email,
+                    PhoneNumber = p.PhoneNumber,
                 })
                 .FirstOrDefault();
 

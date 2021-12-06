@@ -17,6 +17,8 @@ const Edit = ( { match, } ) => {
             capacity: '',
             garages: '',
             beds: '',
+            email: '',
+            phoneNumber: '',
         });
 
     const handleChange = e => {
@@ -54,7 +56,7 @@ const Edit = ( { match, } ) => {
             body: formData
         })
             .then(res => {
-                history.push('/profile');
+                history.push(`/profile/${userId}`);
             })
     }
 
@@ -112,6 +114,18 @@ const Edit = ( { match, } ) => {
                         <label htmlFor="garages">Garages</label>
                         <span className="input">
                             <input type='number' name="garages" id="garages" value={property.garages} onChange={handleChange}/>
+                        </span>
+                    </div>
+                    <div className="field form-el">
+                        <label htmlFor="email">Email</label>
+                        <span className="input">
+                            <input type="text" name="email" id="email" value={property.email} onChange={handleChange} />
+                        </span>
+                    </div>
+                    <div className="field form-el">
+                        <label htmlFor="phoneNumber">PhoneNumber</label>
+                        <span className="input">
+                            <input type="text" name="phoneNumber" id="phoneNumber" value={property.phoneNumber} onChange={handleChange} />
                         </span>
                     </div>
                     <div className='field form-el'>

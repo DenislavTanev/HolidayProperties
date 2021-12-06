@@ -106,14 +106,24 @@ const Create = () => {
                             <input type='number' name="garages" id="garages" placeholder="Garages" />
                         </span>
                     </div>
-
                     <div className="field form-el">
                         <label htmlFor="images">Images</label>
                         <span className="input">
                             <input type="file" name="images" id="images" placeholder="Images" multiple />
                         </span>
                     </div>
-
+                    <div className="field form-el">
+                        <label htmlFor="email">Email</label>
+                        <span className="input">
+                            <input type="text" name="email" id="email" placeholder="Email.." />
+                        </span>
+                    </div>
+                    <div className="field form-el">
+                        <label htmlFor="phoneNumber">PhoneNumber</label>
+                        <span className="input">
+                            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number.." />
+                        </span>
+                    </div>
                     <div className="field form-el">
                         <label htmlFor="type">Type</label>
                         <span className="input">
