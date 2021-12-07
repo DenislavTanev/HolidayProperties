@@ -34,6 +34,13 @@ The web project contains:
 * Use of Default ASP Identity for Authentication
 * Used Asp.Net Web Api for Server Side
 
+## **Test Profiles**
+* user: billy@abv.bg
+* pass: 123456
+* --------
+* user: test@gmail.com
+* pass: 123456
+
 ## **Home Intro**
 ![](https://res.cloudinary.com/dewbeqn4x/image/upload/v1638815407/Screenshot_2021-12-06_202446_nwy6pr.png)
 
