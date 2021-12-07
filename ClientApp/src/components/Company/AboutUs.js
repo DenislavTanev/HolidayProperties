@@ -35,9 +35,9 @@ const AboutUs = () => {
                                 <img src="assets/img/slide-about-1.jpg" alt="" className="img-fluid" />
                             </div>
                             <div className="sinse-box">
-                                <h3 className="sinse-title">EstateAgency
+                                <h3 className="sinse-title">HolidayProperties
                                   <span></span>
-                                    <br /> Sinse 2017
+                                    <br /> Since 2019
                                 </h3>
                             </div>
                         </div>
@@ -48,22 +48,21 @@ const AboutUs = () => {
                                 </div>
                                 <div className="col-lg-2  d-none d-lg-block position-relative">
                                     <div className="title-vertical d-flex justify-content-start">
-                                        <span>EstateAgency Exclusive Property</span>
+                                        <span>HolidayProperties Exclusive Properties</span>
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-lg-5 section-md-t3">
                                     <div className="title-box-d">
-                                        <h3 className="title-d">Sed
-                                           <span className="color-d">porttitor</span> lectus
-                                           <br /> nibh.
+                                        <h3 className="title-d">The
+                                           <span className="color-d">Largest</span> collection
+                                           <br /> in Bulgaria.
                                         </h3>
                                     </div>
                                     <p className="color-text-a">
-                                        Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget
-                                        consectetur sed, convallis
-                                        at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum
-                                        ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-                                        neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
+                                        Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+                                        Mauris blandit aliquet
+                                        elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed,
+                                        convallis at tellus.
                                     </p>
                                     <p className="color-text-a">
                                         Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.

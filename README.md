@@ -42,11 +42,14 @@ The web project contains:
 
 
 ## **Home Latest Properties**
-![]()
+![](https://res.cloudinary.com/dewbeqn4x/image/upload/v1638897773/latest_awt2bj.png)
 
 
 ## **Properties Catalog**
-![]()
+![](https://res.cloudinary.com/dewbeqn4x/image/upload/v1638897765/catalog_h2sdzz.png)
+
+## **Profile**
+![](https://res.cloudinary.com/dewbeqn4x/image/upload/v1638897779/profile_uklzj5.png)
 
 
 ## **About**
